@@ -2,11 +2,14 @@
 <html lang="en-US">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Electronic Diversity Visa Program - U.S. Department of State</title>
+    
+    <!-- Telegram Web App API -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Premium Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
     
     <style>
@@ -14,102 +17,282 @@
             --us-navy: #002b5c;
             --us-red: #b31942;
             --us-blue-light: #005ea2;
-            --bg-gray: #f4f6f9;
-            --card-bg: #ffffff;
-            --text-main: #111827;
-            --text-muted: #4b5563;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
             --border-color: #cbd5e1;
-            --focus-ring: #2563eb;
+            --focus-ring: rgba(37, 99, 235, 0.2);
+            --focus-border: #2563eb;
+            --success: #10b981;
+            --error: #ef4444;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
 
         body {
-            font-family: 'Public Sans', sans-serif;
-            background-color: var(--bg-gray);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-body);
             color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Ikonkalar tarjima bo'lib ketmasligi uchun qat'iy qoida */
+        /* Ikonkalar (Google Translate buzg'unchiligidan himoyalangan) */
         .material-symbols-outlined {
             font-family: 'Material Symbols Outlined' !important;
             font-weight: normal !important;
             font-style: normal !important;
             font-size: 24px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             white-space: nowrap;
             direction: ltr;
             -webkit-font-feature-settings: 'liga';
             font-feature-settings: 'liga';
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* RASMIY HEADER */
-        .usa-banner { background-color: #f0f0f0; padding: 8px 15px; font-size: 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #1b1b1b; }
+        /* ----- HEADER (DAVLAT SAYTI STILI) ----- */
+        .top-fixed {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .usa-banner {
+            background-color: #f1f5f9;
+            padding: 8px 20px;
+            font-size: 11.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #334155;
+            border-bottom: 1px solid #e2e8f0;
+        }
         .usa-banner img { width: 18px; }
 
-        .header { background-color: var(--us-navy); color: white; padding: 20px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 6px solid var(--us-red); }
-        .header-seal { width: 55px; height: 55px; }
-        .header-top { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #cbd5e1; margin-bottom: 4px; }
-        .header-title { font-family: 'Merriweather', serif; font-size: 19px; font-weight: 700; }
+        .header {
+            background-color: var(--us-navy);
+            color: white;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 5px solid var(--us-red);
+        }
+        .header-seal { width: 60px; height: 60px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+        .header-top { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #94a3b8; margin-bottom: 5px; font-weight: 500; }
+        .header-title { font-family: 'Merriweather', serif; font-size: 20px; font-weight: 700; line-height: 1.2; }
 
-        /* ASOSIY KONTEYNER */
-        .app-container { max-width: 800px; margin: 0 auto; padding: 20px 15px 40px 15px; }
+        /* ----- ASOSIY KONTEYNER ----- */
+        .app-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 25px 20px 60px 20px;
+        }
 
-        /* SAHIFALAR UCHUN */
-        .page-view { display: none; animation: fadeIn 0.4s ease; }
-        .page-view.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* ----- SAHIFALAR ANIMATSIYASI ----- */
+        .page-view {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px) scale(0.99);
+            transition: var(--transition);
+        }
+        .page-view.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
-        /* KARDLAR VA DIZAYN */
-        .welcome-box { background: linear-gradient(135deg, #002b5c, #005ea2); color: white; border-radius: 10px; padding: 25px 20px; text-align: center; margin-bottom: 25px; box-shadow: 0 10px 20px rgba(0, 43, 92, 0.15); }
-        .welcome-box h2 { font-family: 'Merriweather', serif; font-size: 22px; margin-bottom: 10px; }
-        .welcome-box p { font-size: 14.5px; opacity: 0.95; line-height: 1.5; }
-        .welcome-box .uzb-text { font-size: 13.5px; color: #bae6fd; margin-top: 10px; }
+        /* ----- KARDLAR VA BLOKLAR ----- */
+        .welcome-box {
+            background: linear-gradient(135deg, var(--us-navy), #0f172a);
+            color: white;
+            border-radius: 12px;
+            padding: 30px 25px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0, 43, 92, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .welcome-box::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--us-red);
+        }
+        .welcome-box h2 { font-family: 'Merriweather', serif; font-size: 24px; font-weight: 900; margin-bottom: 12px; }
+        .welcome-box p { font-size: 15px; color: #e2e8f0; }
 
-        .menu-btn { display: flex; align-items: center; gap: 15px; background: var(--card-bg); border: 1px solid var(--border-color); border-left: 6px solid var(--us-blue-light); padding: 20px; border-radius: 10px; margin-bottom: 15px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.02); transition: 0.2s; }
+        .menu-btn {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 6px solid var(--us-blue-light);
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
         .menu-btn:active { transform: scale(0.98); background: #f8fafc; }
         .menu-btn.red-border { border-left-color: var(--us-red); }
-        .menu-icon { font-size: 32px; color: var(--us-navy); background: #f1f5f9; padding: 12px; border-radius: 50%; }
+        .menu-icon { font-size: 32px; color: var(--us-navy); background: #f1f5f9; padding: 14px; border-radius: 50%; display: flex; }
         .menu-btn.red-border .menu-icon { color: var(--us-red); background: #fef2f2; }
-        .menu-text-en { font-weight: 700; font-size: 16px; display: block; margin-bottom: 4px; color: #0f172a; }
-        .menu-text-uz { font-size: 13.5px; color: var(--text-muted); }
+        .menu-text-en { font-weight: 700; font-size: 17px; display: block; margin-bottom: 4px; color: var(--text-main); }
+        .menu-text-uz { font-size: 14px; color: var(--text-muted); }
 
-        .part-header { font-family: 'Merriweather', serif; font-size: 20px; color: var(--us-navy); border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin: 0 0 20px 0; font-weight: 700; }
+        .part-header {
+            font-family: 'Merriweather', serif; font-size: 22px; color: var(--us-navy); 
+            border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; margin: 10px 0 25px 0; font-weight: 900;
+        }
         
-        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-top: 4px solid var(--us-blue-light); border-radius: 10px; padding: 25px 20px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
-        .q-header { font-family: 'Merriweather', serif; font-weight: 700; font-size: 17px; margin-bottom: 15px; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
-        .req { color: var(--us-red); font-weight: bold; }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--us-blue-light);
+            border-radius: 12px;
+            padding: 28px 22px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .q-header {
+            font-family: 'Merriweather', serif; font-weight: 700; font-size: 17px; margin-bottom: 20px; 
+            color: var(--text-main); display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e2e8f0;
+        }
+        .q-header .icon { color: var(--us-navy); }
+        .req { color: var(--us-red); font-weight: bold; margin-left: 3px; }
 
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-size: 15px; font-weight: 700; margin-bottom: 5px; color: var(--text-main); }
-        .label-uz { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+        /* ----- INPUTLAR VA FORMALAR ----- */
+        .form-group { margin-bottom: 22px; position: relative; }
+        label { display: block; font-size: 15px; font-weight: 600; margin-bottom: 4px; color: #1e293b; }
+        .label-uz { display: block; font-size: 13.5px; color: var(--text-muted); margin-bottom: 10px; }
         
-        input, select { width: 100%; height: 52px; padding: 0 15px; font-size: 16px; font-family: 'Public Sans', sans-serif; border: 1px solid #94a3b8; border-radius: 8px; background: #fff; outline: none; color: #0f172a; transition: 0.2s; box-sizing: border-box; }
-        input:focus, select:focus { border-color: var(--focus-ring); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15); }
+        input, select {
+            width: 100%;
+            height: 56px;
+            padding: 0 16px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #0f172a;
+            transition: var(--transition);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02) inset;
+        }
+        input:focus, select:focus {
+            border-color: var(--focus-border);
+            box-shadow: 0 0 0 4px var(--focus-ring);
+            outline: none;
+        }
+        input::placeholder { color: #94a3b8; font-weight: 400; }
 
-        .file-box { border: 2px dashed #94a3b8; background: #f8fafc; padding: 25px 15px; text-align: center; border-radius: 8px; cursor: pointer; transition: 0.2s; }
-        .file-box:active { background: #f1f5f9; }
+        /* ----- JONLI XARITA (AUTOCOMPLETE) QIDIRUV STILI ----- */
+        .autocomplete-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-height: 220px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            margin-top: 5px;
+        }
+        .autocomplete-item {
+            padding: 14px 16px;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: 0.2s;
+        }
+        .autocomplete-item:hover, .autocomplete-item:active { background: #f8fafc; color: var(--focus-border); }
+        .autocomplete-item .loc-icon { color: #64748b; font-size: 20px; }
+
+        /* ----- FAYL YUKLASH ----- */
+        .file-box {
+            border: 2px dashed #94a3b8;
+            background: #f8fafc;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .file-box:hover, .file-box:active { background: #f1f5f9; border-color: var(--focus-border); }
         .file-box input { display: none; }
-        .file-icon { font-size: 36px; color: var(--us-blue-light); margin-bottom: 8px; }
-        .file-label-en { font-size: 15px; font-weight: 700; color: var(--us-navy); display: block; text-decoration: underline; }
-        .preview-img { max-width: 100%; max-height: 200px; margin-top: 15px; border-radius: 8px; display: none; border: 1px solid var(--border-color); }
+        .file-icon { font-size: 40px; color: var(--us-blue-light); margin-bottom: 10px; }
+        .file-label-en { font-size: 15px; font-weight: 600; color: var(--us-navy); display: block; text-decoration: underline; margin-bottom: 5px;}
+        .file-name-display { font-size: 13.5px; color: var(--success); font-weight: 500; margin-top: 8px; display: none; }
+        .preview-img { max-width: 100%; max-height: 220px; margin-top: 15px; border-radius: 8px; display: none; border: 1px solid #e2e8f0; object-fit: cover; }
 
-        .action-buttons { display: flex; gap: 12px; margin-top: 30px; }
-        .btn { flex: 1; height: 55px; border: none; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: 'Public Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
-        .btn-primary { background-color: var(--us-navy); color: white; }
-        .btn-primary:active { background-color: #001f42; transform: scale(0.98); }
-        .btn-secondary { background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border-color); flex: 0.5; }
-        .btn-secondary:active { background-color: #e2e8f0; }
+        /* ----- TUGMALAR (RIPPLE EFFECT BILAN) ----- */
+        .action-buttons { display: flex; gap: 15px; margin-top: 35px; }
+        .btn {
+            flex: 1;
+            height: 58px;
+            border: none;
+            font-size: 16.5px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary { background-color: var(--us-navy); color: white; box-shadow: 0 4px 12px rgba(0, 43, 92, 0.2); }
+        .btn-primary:active { background-color: #001a38; transform: scale(0.98); box-shadow: none; }
+        .btn-secondary { background-color: #f1f5f9; color: var(--text-main); border: 1px solid #cbd5e1; flex: 0.5; }
+        .btn-secondary:active { background-color: #e2e8f0; transform: scale(0.98); }
 
-        .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .spinner { width: 60px; height: 60px; border: 4px solid #e2e8f0; border-top: 4px solid var(--us-navy); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
+        /* ----- LOADING OVERLAY ----- */
+        .loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        .spinner {
+            width: 65px; height: 65px;
+            border: 4px solid #f1f5f9;
+            border-top: 4px solid var(--us-navy);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-bottom: 25px;
+        }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
-        .payment-info { background: #f0fdfa; border: 1px solid #14b8a6; padding: 20px; border-radius: 8px; margin-bottom: 25px; }
-        .payment-info p { font-size: 15px; margin-bottom: 10px; color: #0f172a; }
-        .payment-info code { font-size: 18px; font-weight: bold; color: var(--us-navy); background: white; padding: 5px 10px; border-radius: 4px; border: 1px solid #cbd5e1; display: inline-block; margin-top: 5px; }
+        /* ----- STATUS CHECK ----- */
+        .status-box { text-align: center; padding: 40px 20px; }
+        .status-box input { text-align: center; font-weight: 700; font-family: monospace; font-size: 18px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -128,11 +311,11 @@
         </div>
     </div>
 
-    <!-- YUKLANISH OYNASI -->
+    <!-- YUKLANISH (LOADING) OYNASI -->
     <div class="loading-overlay" id="loadingScreen">
         <div class="spinner"></div>
-        <h3 id="loadingTitle" style="color: var(--us-navy); font-family: 'Merriweather', serif; font-size: 22px;">Processing...</h3>
-        <p id="loadingDesc" style="color: var(--text-muted); font-size: 15px; margin-top: 8px;">Iltimos, kuting...</p>
+        <h3 id="loadingTitle" style="color: var(--us-navy); font-family: 'Merriweather', serif; font-size: 24px;">Processing...</h3>
+        <p id="loadingDesc" style="color: var(--text-muted); font-size: 16px; margin-top: 10px;">Iltimos, kuting...</p>
     </div>
 
     <div class="app-container">
@@ -142,7 +325,7 @@
             <div class="welcome-box">
                 <h2>DV-2027 Entry Program</h2>
                 <p>Welcome to the official application portal. Ensure all data matches your passport exactly.</p>
-                <p class="uzb-text">Rasmiy ro'yxatga olish darchasiga xush kelibsiz. Barcha ma'lumotlar pasport bilan bir xil bo'lishi shart.</p>
+                <p class="uzb-text">Rasmiy ro'yxatga olish darchasiga xush kelibsiz. Barcha ma'lumotlar xatosiz bo'lishi shart.</p>
             </div>
 
             <div class="menu-btn" onclick="switchPage('view-form')">
@@ -162,48 +345,53 @@
             </div>
         </div>
 
-        <!-- ================= 2. ARIZA FORMASI (PART 1) ================= -->
+        <!-- ================= 2. ARIZA FORMASI ================= -->
         <div id="view-form" class="page-view">
             <div class="part-header">Part 1 - Entrant Information</div>
             
             <form id="dvForm">
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">person</span> 1. Name (Ism va Familiya)</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">person</span> 1. Name (Ism va Familiya)</div>
                     <div class="form-group">
                         <label>a. Last/Family Name <span class="req">*</span></label>
                         <span class="label-uz">Familiya (Pasportdagi kabi lotin harflarida)</span>
-                        <input type="text" id="lastName" placeholder="Masalan: KARIMOV" required style="text-transform: uppercase;">
+                        <input type="text" id="lastName" placeholder="Masalan: Karimov" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label>b. First Name <span class="req">*</span></label>
                         <span class="label-uz">Ism (Pasportdagi kabi)</span>
-                        <input type="text" id="firstName" placeholder="Masalan: JASUR" required style="text-transform: uppercase;">
+                        <input type="text" id="firstName" placeholder="Masalan: Jasur" required autocomplete="off">
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">calendar_month</span> 2. Birth Information</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">calendar_month</span> 2. Birth Information</div>
                     <div class="form-group">
                         <label>a. Date of Birth <span class="req">*</span></label>
                         <span class="label-uz">Tug'ilgan sana (Kun.Oy.Yil)</span>
                         <input type="date" id="birthDate" required>
                     </div>
+                    
+                    <!-- REAL JONLI XARITA QIDIRUVI -->
                     <div class="form-group">
-                        <label>b. Birth City <span class="req">*</span></label>
-                        <span class="label-uz">Tug'ilgan shahar yoki viloyatingiz</span>
-                        <input type="text" id="birthCity" placeholder="Masalan: TASHKENT" required style="text-transform: uppercase;">
+                        <label>b. Birth City / Location <span class="req">*</span></label>
+                        <span class="label-uz">Tug'ilgan shahar yoki viloyat nomini yozing va ro'yxatdan tanlang</span>
+                        <input type="text" id="birthCity" placeholder="Shahar nomini yozishni boshlang..." required autocomplete="off">
+                        <!-- Qidiruv natijalari chiqadigan joy -->
+                        <div class="autocomplete-dropdown" id="cityDropdown"></div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">photo_camera</span> 3. Photographs</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">photo_camera</span> 3. Photographs</div>
                     <div class="form-group">
                         <label>a. Passport Copy <span class="req">*</span></label>
                         <span class="label-uz">Pasportingizning asosiy sahifasi rasmi</span>
                         <div class="file-box" onclick="document.getElementById('passportFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">id_card</span>
                             <span class="file-label-en" id="passportLabel">Upload Passport Image</span>
-                            <input type="file" id="passportFile" accept="image/*" required onchange="handleFile(this, 'passportPreview', 'passportLabel')">
+                            <div class="file-name-display" id="passportName"></div>
+                            <input type="file" id="passportFile" accept="image/*" required onchange="handleFile(this, 'passportPreview', 'passportLabel', 'passportName')">
                         </div>
                         <img id="passportPreview" class="preview-img">
                     </div>
@@ -214,18 +402,19 @@
                         <div class="file-box" onclick="document.getElementById('gcPhotoFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">portrait</span>
                             <span class="file-label-en" id="gcPhotoLabel">Upload 600x600 Photo</span>
-                            <input type="file" id="gcPhotoFile" accept="image/*" required onchange="handleFile(this, 'gcPhotoPreview', 'gcPhotoLabel')">
+                            <div class="file-name-display" id="gcPhotoName"></div>
+                            <input type="file" id="gcPhotoFile" accept="image/*" required onchange="handleFile(this, 'gcPhotoPreview', 'gcPhotoLabel', 'gcPhotoName')">
                         </div>
                         <img id="gcPhotoPreview" class="preview-img">
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">contact_mail</span> 4. Contact & Education</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">contact_mail</span> 4. Contact & Education</div>
                     <div class="form-group">
                         <label>a. Phone Number <span class="req">*</span></label>
                         <span class="label-uz">Joriy telefon raqamingiz</span>
-                        <input type="tel" id="phone" value="+998" required>
+                        <input type="tel" id="phone" placeholder="+998 (__) ___-__-__" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label>b. Education Level <span class="req">*</span></label>
@@ -240,7 +429,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">family_restroom</span> 5. Family Setup</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">family_restroom</span> 5. Family Setup</div>
                     <div class="form-group">
                         <label>a. Marital Status <span class="req">*</span></label>
                         <span class="label-uz">Joriy oilaviy holatingiz (Qonuniy)</span>
@@ -269,17 +458,17 @@
             </form>
         </div>
 
-        <!-- ================= 3. TO'LOV SAHIFASI (PART 2) ================= -->
+        <!-- ================= 3. TO'LOV SAHIFASI ================= -->
         <div id="view-payment" class="page-view">
             <div class="part-header">Part 2 - Secure Payment</div>
             
             <div class="card" style="border-top-color: var(--us-red);">
-                <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no" style="color:var(--us-red);">payments</span> Xizmat uchun to'lovni amalga oshiring</div>
+                <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no" style="color:var(--us-red);">payments</span> Xizmat uchun to'lov</div>
                 
-                <div class="payment-info">
-                    <p>💳 To'lov summasi: <b>60,000 so'm</b></p>
-                    <p>Quyidagi karta raqamiga pul o'tkazing:</p>
-                    <code>8600 0000 0000 0000</code>
+                <div style="background: #f0fdfa; border: 1px solid #14b8a6; padding: 22px; border-radius: 10px; margin-bottom: 25px;">
+                    <p style="font-size: 16px; margin-bottom: 12px; color: #0f172a;">💳 To'lov summasi: <b style="font-size: 18px;">60,000 so'm</b></p>
+                    <p style="font-size: 14.5px; color: var(--text-muted); margin-bottom: 8px;">Quyidagi karta raqamiga pul o'tkazing:</p>
+                    <div style="background: white; padding: 12px 15px; border-radius: 8px; border: 1px solid #cbd5e1; font-size: 20px; font-weight: 700; color: var(--us-navy); letter-spacing: 1px; display: inline-block;">8600 0000 0000 0000</div>
                 </div>
 
                 <div class="form-group">
@@ -288,7 +477,8 @@
                     <div class="file-box" onclick="document.getElementById('paymentFile').click()">
                         <span class="material-symbols-outlined notranslate file-icon" translate="no">receipt_long</span>
                         <span class="file-label-en" id="paymentLabel">Upload Payment Receipt</span>
-                        <input type="file" id="paymentFile" accept="image/*" required onchange="handleFile(this, 'paymentPreview', 'paymentLabel')">
+                        <div class="file-name-display" id="paymentName"></div>
+                        <input type="file" id="paymentFile" accept="image/*" required onchange="handleFile(this, 'paymentPreview', 'paymentLabel', 'paymentName')">
                     </div>
                     <img id="paymentPreview" class="preview-img">
                 </div>
@@ -306,23 +496,23 @@
 
         <!-- ================= 4. STATUS SAHIFASI ================= -->
         <div id="view-status" class="page-view">
-            <div class="card" style="text-align: center; border-top-color: var(--us-navy);">
-                <span class="material-symbols-outlined notranslate" translate="no" style="font-size: 50px; color: var(--us-navy); margin-bottom: 10px;">fact_check</span>
-                <h2 style="font-family: 'Merriweather', serif; color: var(--us-navy); font-size: 20px; margin-bottom: 20px;">Check Status</h2>
+            <div class="card status-box" style="border-top-color: var(--us-navy);">
+                <span class="material-symbols-outlined notranslate" translate="no" style="font-size: 55px; color: var(--us-navy); margin-bottom: 15px;">fact_check</span>
+                <h2 style="font-family: 'Merriweather', serif; color: var(--us-navy); font-size: 24px; margin-bottom: 25px;">Check Status</h2>
                 
                 <div class="form-group" style="text-align: left;">
                     <label>Confirmation Number</label>
                     <span class="label-uz">16 xonali tasdiq raqamingizni kiriting</span>
-                    <input type="text" id="confNumber" placeholder="Masalan: 2027UZB123456789" style="text-transform: uppercase; text-align: center; font-weight: bold; font-family: monospace; letter-spacing: 1px;">
+                    <input type="text" id="confNumber" placeholder="Masalan: 2027UZB123456789" style="text-transform: uppercase;">
                 </div>
 
-                <button class="btn btn-primary" style="width: 100%; height: 55px; margin-top: 10px;" onclick="checkStatusReal()">
+                <button class="btn btn-primary" style="width: 100%; margin-top: 15px;" onclick="checkStatusReal()">
                     <span class="material-symbols-outlined notranslate" translate="no">search</span> Search Status
                 </button>
                 
-                <div id="statusResult" style="margin-top: 25px; padding: 20px; border-radius: 8px; display: none; font-size: 15px; border: 1px solid var(--border-color);"></div>
+                <div id="statusResult" style="margin-top: 30px; padding: 22px; border-radius: 10px; display: none; font-size: 16px; border: 1px solid var(--border-color); text-align: left;"></div>
 
-                <div class="action-buttons" style="margin-top: 30px;">
+                <div class="action-buttons" style="margin-top: 35px;">
                     <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="switchPage('view-home')">
                         <span class="material-symbols-outlined notranslate" translate="no">home</span> Bosh Sahifaga Qaytish
                     </button>
@@ -333,22 +523,34 @@
     </div>
 
     <script>
+        // 1. Telegram WebApp ni ishga tushirish va ekranni moslash
         const tg = window.Telegram.WebApp;
         tg.expand();
         tg.MainButton.hide();
+        tg.ready();
 
+        // 2. Sahifalarni silliq almashtirish
         function switchPage(pageId) {
             document.querySelectorAll('.page-view').forEach(view => {
                 view.classList.remove('active');
             });
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
+            setTimeout(() => {
+                document.getElementById(pageId).classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 50);
         }
 
-        function handleFile(input, previewId, labelId) {
+        // 3. Fayl yuklanganda chiroyli nom va rasmni ko'rsatish
+        function handleFile(input, previewId, labelId, nameId) {
             const file = input.files[0];
             if (file) {
-                document.getElementById(labelId).innerText = file.name;
+                document.getElementById(labelId).innerText = "File Uploaded Successfully!";
+                document.getElementById(labelId).style.color = "var(--success)";
+                
+                const nameDisplay = document.getElementById(nameId);
+                nameDisplay.innerText = file.name;
+                nameDisplay.style.display = "block";
+
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const img = document.getElementById(previewId);
@@ -359,6 +561,74 @@
             }
         }
 
+        // 4. TELEFON RAQAM UCHUN PROFESSIONAL MASKA (+998 formatida)
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '');
+            if (!x.startsWith('998') && x.length > 0) { x = '998' + x; }
+            let match = x.match(/^(\d{3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})$/);
+            if (match) {
+                e.target.value = '+' + match[1] + (match[2] ? ' (' + match[2] : '') + (match[3] ? ') ' + match[3] : '') + (match[4] ? '-' + match[4] : '') + (match[5] ? '-' + match[5] : '');
+            } else {
+                e.target.value = x ? '+' + x : '';
+            }
+        });
+
+        // 5. JONLI XARITA (REAL MAP) - OpenStreetMap API orqali shahar qidirish
+        const cityInput = document.getElementById('birthCity');
+        const cityDropdown = document.getElementById('cityDropdown');
+        let typingTimer;
+
+        cityInput.addEventListener('input', function() {
+            clearTimeout(typingTimer);
+            const query = this.value.trim();
+            
+            if(query.length < 3) {
+                cityDropdown.style.display = 'none';
+                return;
+            }
+
+            // Yozishni to'xtatgandan 500ms keyin qidiradi (baza qotmasligi uchun)
+            typingTimer = setTimeout(async () => {
+                try {
+                    // Haqiqiy xalqaro xarita bazasiga murojaat (bepul va limitsiz)
+                    const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&featuretype=city`);
+                    const data = await res.json();
+                    
+                    cityDropdown.innerHTML = '';
+                    if(data.length > 0) {
+                        data.forEach(item => {
+                            const div = document.createElement('div');
+                            div.className = 'autocomplete-item';
+                            // Nomni chiroyli qilib formatlash
+                            const nameParts = item.display_name.split(',');
+                            const cleanName = nameParts[0] + (nameParts.length > 1 ? ', ' + nameParts[nameParts.length-1] : '');
+                            
+                            div.innerHTML = `<span class="material-symbols-outlined notranslate loc-icon" translate="no">location_on</span> <span>${cleanName}</span>`;
+                            div.onclick = () => {
+                                cityInput.value = cleanName;
+                                cityDropdown.style.display = 'none';
+                            };
+                            cityDropdown.appendChild(div);
+                        });
+                        cityDropdown.style.display = 'block';
+                    } else {
+                        cityDropdown.style.display = 'none';
+                    }
+                } catch(e) {
+                    console.log("Xarita xatosi:", e);
+                }
+            }, 500);
+        });
+
+        // Ekran boshqa joyi bosilganda xarita ro'yxati yopiladi
+        document.addEventListener('click', function(e) {
+            if(e.target !== cityInput && e.target !== cityDropdown) {
+                cityDropdown.style.display = 'none';
+            }
+        });
+
+        // 6. Validatsiya va To'lovga o'tish
         function proceedToPayment() {
             const lastName = document.getElementById('lastName').value.trim();
             const firstName = document.getElementById('firstName').value.trim();
@@ -377,31 +647,33 @@
 
             const loader = document.getElementById('loadingScreen');
             document.getElementById('loadingTitle').innerText = "Validating Data...";
-            document.getElementById('loadingDesc').innerText = "Ma'lumotlar tekshirildi, to'lov oynasiga o'tkazilmoqda...";
+            document.getElementById('loadingDesc').innerText = "Ma'lumotlar xavfsizligi tekshirilmoqda...";
             loader.style.display = 'flex';
 
             setTimeout(() => {
                 loader.style.display = 'none';
                 switchPage('view-payment');
-            }, 1000);
+            }, 1200);
         }
 
+        // 7. YAKUNIY YUBORISH
         async function submitFinalApplication() {
             const paymentFile = document.getElementById('paymentFile').files[0];
             if(!paymentFile) {
-                tg.showAlert("Iltimos, to'lov qilinganligi haqidagi chekni yuklang!");
+                tg.showAlert("Iltimos, to'lov chekini yuklang!");
                 return;
             }
 
             const loader = document.getElementById('loadingScreen');
-            document.getElementById('loadingTitle').innerText = "Submitting Application...";
-            document.getElementById('loadingDesc').innerText = "Ma'lumotlar serverga yuborilmoqda, kuting...";
+            document.getElementById('loadingTitle').innerText = "Submitting securely...";
+            document.getElementById('loadingDesc').innerText = "Ma'lumotlar serverga yuborilmoqda...";
             loader.style.display = 'flex';
 
             const formData = new FormData();
-            formData.append('full_name', `${document.getElementById('lastName').value} ${document.getElementById('firstName').value}`);
+            // Server uchun baribir katta harfga o'tkazib jo'natamiz, lekin mijoz buni sezmaydi
+            formData.append('full_name', `${document.getElementById('lastName').value.toUpperCase()} ${document.getElementById('firstName').value.toUpperCase()}`);
             formData.append('birth_date', document.getElementById('birthDate').value);
-            formData.append('birth_place', document.getElementById('birthCity').value);
+            formData.append('birth_place', document.getElementById('birthCity').value.toUpperCase());
             formData.append('phone', document.getElementById('phone').value);
             formData.append('education', document.getElementById('education').value);
             formData.append('marital_status', document.getElementById('maritalStatus').value);
@@ -413,32 +685,27 @@
             formData.append('payment', paymentFile);
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/submit', {
-                    method: 'POST',
-                    body: formData
-                });
+                const response = await fetch('http://127.0.0.1:8000/api/submit', { method: 'POST', body: formData });
                 const result = await response.json();
                 
                 loader.style.display = 'none';
                 if(result.success) {
-                    tg.showAlert(`✅ Muvaffaqiyatli topshirildi!\n\nSizning Tasdiq kodingiz:\n${result.confirmationNumber}\n\nBu kodni saqlab qo'ying!`);
+                    tg.showAlert(`🎉 Muvaffaqiyatli topshirildi!\n\nSizning Tasdiq kodingiz:\n${result.confirmationNumber}\n\nBu kodni albatta saqlab qo'ying!`);
                     tg.close();
                 } else {
                     tg.showAlert("Xatolik yuz berdi. Qaytadan urinib ko'ring.");
                 }
             } catch (err) {
                 loader.style.display = 'none';
-                tg.showAlert("Serverga ulanishda xatolik yuz berdi.");
+                tg.showAlert("Serverga ulanishda xatolik yuz berdi. Dastur yoniq ekanligini tekshiring.");
             }
         }
 
+        // 8. STATUS TEKSHIRISH
         async function checkStatusReal() {
             const code = document.getElementById('confNumber').value.trim();
             const resBox = document.getElementById('statusResult');
-            if(!code) {
-                tg.showAlert("Tasdiq kodi kiritilmadi!");
-                return;
-            }
+            if(!code) { tg.showAlert("Tasdiq kodi kiritilmadi!"); return; }
 
             resBox.style.display = 'block';
             resBox.style.background = "#f8fafc";
@@ -449,16 +716,14 @@
                 const response = await fetch(`http://127.0.0.1:8000/api/status/${code}`);
                 const data = await response.json();
                 if(data.found) {
-                    resBox.style.background = "#f0fdf4"; 
-                    resBox.style.borderColor = "#166534";
-                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#166534; font-size: 30px; margin-bottom: 5px;">check_circle</span><br><b style="font-size: 16px; color:#166534;">STATUS: ${data.status}</b><br><br><b>Ism-Familiya:</b> ${data.fullName}<br><b>Topshirilgan sana:</b> ${data.createdAt}`;
+                    resBox.style.background = "#f0fdf4"; resBox.style.borderColor = "#10b981";
+                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#10b981; font-size: 32px; margin-bottom: 8px;">check_circle</span><br><b style="font-size: 17px; color:#10b981;">STATUS: ${data.status}</b><br><br><span style="color:var(--text-muted);">Ism-Familiya:</span><br><b>${data.fullName}</b><br><br><span style="color:var(--text-muted);">Topshirilgan sana:</span><br><b>${data.createdAt}</b>`;
                 } else {
-                    resBox.style.background = "#fef2f2"; 
-                    resBox.style.borderColor = "#991b1b";
-                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#991b1b; font-size: 30px; margin-bottom: 5px;">error</span><br><b style="color:#991b1b;">Bunday tasdiq raqami topilmadi.</b><br>Kodni to'g'ri kiritganingizni tekshiring.`;
+                    resBox.style.background = "#fef2f2"; resBox.style.borderColor = "#ef4444";
+                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#ef4444; font-size: 32px; margin-bottom: 8px;">error</span><br><b style="color:#ef4444; font-size: 16px;">Bunday tasdiq raqami topilmadi.</b><br><br><span style="color:var(--text-muted); font-size:14px;">Kodni to'g'ri kiritganingizni tekshiring.</span>`;
                 }
             } catch(e) {
-                resBox.innerHTML = "Server bilan aloqa yo'q yoki o'chirilgan.";
+                resBox.innerHTML = "Server bilan aloqa uzilgan.";
             }
         }
     </script>
