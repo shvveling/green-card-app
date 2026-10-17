@@ -28,23 +28,9 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            overflow-x: hidden;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-body); color: var(--text-main); overflow-x: hidden; }
 
-        .material-symbols-outlined {
-            font-family: 'Material Symbols Outlined' !important;
-            font-weight: normal !important;
-            font-size: 22px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            -webkit-font-feature-settings: 'liga';
-            direction: ltr;
-        }
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; font-weight: normal !important; font-size: 22px; display: inline-flex; align-items: center; justify-content: center; -webkit-font-feature-settings: 'liga'; direction: ltr; }
 
         .usa-banner { background-color: #f1f5f9; padding: 8px 15px; font-size: 11px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #e2e8f0; color: #475569; }
         .usa-banner img { width: 16px; }
@@ -63,6 +49,7 @@
         .welcome-box { background: linear-gradient(135deg, var(--us-navy), #0f172a); color: white; border-radius: 12px; padding: 25px 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0, 43, 92, 0.15); border-top: 4px solid var(--us-red); }
         .welcome-box h2 { font-family: 'Merriweather', serif; font-size: 22px; margin-bottom: 10px; }
         .welcome-box p { font-size: 14px; color: #e2e8f0; line-height: 1.5; }
+        .welcome-box .uzb-text { font-size: 13.5px; color: #bae6fd; margin-top: 10px; font-style: italic; }
 
         .menu-btn { display: flex; align-items: center; gap: 15px; background: var(--bg-card); border: 1px solid var(--border-color); border-left: 5px solid var(--us-blue-light); padding: 18px; border-radius: 10px; margin-bottom: 15px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: var(--transition); }
         .menu-btn:active { transform: scale(0.98); background: #f8fafc; }
@@ -76,44 +63,40 @@
         
         .card { background: var(--bg-card); border: 1px solid #e2e8f0; border-top: 4px solid var(--us-blue-light); border-radius: 10px; padding: 22px 18px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.02); }
         .q-header { font-family: 'Merriweather', serif; font-weight: 700; font-size: 16px; margin-bottom: 18px; color: var(--text-main); display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px dashed #e2e8f0; }
-        .q-header .icon { color: var(--us-navy); }
         .req { color: var(--us-red); font-weight: bold; margin-left: 2px; }
 
         .form-group { margin-bottom: 20px; position: relative; }
-        label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; color: #1e293b; }
-        .label-uz { display: block; font-size: 12.5px; color: var(--text-muted); margin-bottom: 8px; font-style: italic; }
+        label { display: block; font-size: 14.5px; font-weight: 700; margin-bottom: 4px; color: #1e293b; }
+        .label-uz { display: block; font-size: 13px; color: var(--us-blue-light); margin-bottom: 8px; font-weight: 500; }
         
         input, select { width: 100%; height: 50px; padding: 0 15px; font-size: 15px; font-family: 'Inter', sans-serif; border: 1.5px solid #cbd5e1; border-radius: 8px; background: #ffffff; color: #0f172a; transition: var(--transition); }
         input:focus, select:focus { border-color: var(--focus-border); box-shadow: 0 0 0 3px var(--focus-ring); outline: none; }
-        input::placeholder { color: #94a3b8; font-weight: 400; }
-
+        
         /* JONLI XARITA (UZB) */
-        .autocomplete-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-height: 200px; overflow-y: auto; z-index: 100; display: none; margin-top: 5px; }
+        .autocomplete-dropdown { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #cbd5e1; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); max-height: 220px; overflow-y: auto; z-index: 100; display: none; margin-top: 5px; }
         .autocomplete-item { padding: 12px 15px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
-        .autocomplete-item:hover, .autocomplete-item:active { background: #f8fafc; color: var(--focus-border); }
-        .loc-icon { color: #64748b; font-size: 18px; }
+        .autocomplete-item:hover, .autocomplete-item:active { background: #f8fafc; color: var(--us-blue-light); font-weight: 600; }
+        .loc-icon { color: var(--us-blue-light); font-size: 18px; }
 
         .file-box { border: 2px dashed #94a3b8; background: #f8fafc; padding: 25px 15px; text-align: center; border-radius: 10px; cursor: pointer; transition: var(--transition); }
         .file-box:active { background: #f1f5f9; border-color: var(--focus-border); }
         .file-box input { display: none; }
         .file-icon { font-size: 35px; color: var(--us-blue-light); margin-bottom: 8px; }
-        .file-label-en { font-size: 14px; font-weight: 600; color: var(--us-navy); display: block; text-decoration: underline; margin-bottom: 5px;}
-        .file-name-display { font-size: 13px; color: var(--success); font-weight: 500; margin-top: 5px; display: none; }
+        .file-label-en { font-size: 14.5px; font-weight: 700; color: var(--us-navy); display: block; text-decoration: underline; margin-bottom: 5px;}
+        .file-name-display { font-size: 13px; color: var(--success); font-weight: 600; margin-top: 5px; display: none; background: #ecfdf5; padding: 5px; border-radius: 4px; border: 1px solid #a7f3d0;}
         .preview-img { max-width: 100%; max-height: 180px; margin-top: 15px; border-radius: 8px; display: none; border: 1px solid #e2e8f0; object-fit: cover; }
 
-        /* MUKAMMAL TUGMALAR (TOSHPIMAYDIGAN, CHIQIB KETMAYDIGAN) */
-        .action-buttons { display: flex; gap: 10px; margin-top: 25px; }
-        .btn { flex: 1; min-height: 52px; border: none; font-size: 14.5px; font-weight: 600; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: 6px; transition: var(--transition); padding: 0 10px; text-align: center; line-height: 1.2; }
+        .action-buttons { display: flex; gap: 12px; margin-top: 25px; }
+        .btn { flex: 1; min-height: 54px; border: none; font-size: 15px; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; transition: var(--transition); padding: 0 15px; }
         .btn-primary { background-color: var(--us-navy); color: white; box-shadow: 0 4px 10px rgba(0, 43, 92, 0.15); }
         .btn-primary:active { background-color: #001a38; transform: scale(0.98); }
         .btn-secondary { background-color: #f1f5f9; color: var(--text-main); border: 1px solid #cbd5e1; flex: 0.5; }
         .btn-secondary:active { background-color: #e2e8f0; transform: scale(0.98); }
 
-        /* KARTA NUSXALASH DIZAYNI */
-        .copy-card { display: flex; align-items: center; justify-content: space-between; background: white; padding: 12px 15px; border-radius: 8px; border: 1.5px dashed #14b8a6; margin-top: 8px; cursor: pointer; transition: 0.2s; }
+        .copy-card { display: flex; align-items: center; justify-content: space-between; background: white; padding: 15px; border-radius: 8px; border: 2px dashed #14b8a6; margin-top: 8px; cursor: pointer; transition: 0.2s; }
         .copy-card:active { background: #f0fdfa; transform: scale(0.98); }
         .copy-card span:first-child { font-size: 18px; font-weight: 700; color: var(--us-navy); letter-spacing: 1.5px; font-family: monospace; }
-        .copy-card .icon { color: #14b8a6; font-size: 22px; }
+        .copy-card .icon { color: #14b8a6; font-size: 24px; }
 
         .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.98); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; backdrop-filter: blur(5px); }
         .spinner { width: 55px; height: 55px; border: 4px solid #f1f5f9; border-top: 4px solid var(--us-navy); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 20px; }
@@ -141,7 +124,7 @@
     <div class="loading-overlay" id="loadingScreen">
         <div class="spinner"></div>
         <h3 id="loadingTitle" style="color: var(--us-navy); font-family: 'Merriweather', serif; font-size: 20px;">Processing...</h3>
-        <p id="loadingDesc" style="color: var(--text-muted); font-size: 14px; margin-top: 8px;">Iltimos, kuting...</p>
+        <p id="loadingDesc" style="color: var(--text-muted); font-size: 14.5px; margin-top: 8px;">Iltimos, kuting...</p>
     </div>
 
     <div class="app-container">
@@ -151,12 +134,13 @@
             <div class="welcome-box">
                 <h2>DV-2027 Entry Program</h2>
                 <p>Welcome to the official application portal. Ensure all data matches your passport exactly.</p>
+                <p class="uzb-text">Rasmiy ro'yxatga olish portaliga xush kelibsiz. Barcha ma'lumotlar pasport bilan bir xil bo'lishi shart.</p>
             </div>
 
             <div class="menu-btn" onclick="switchPage('view-form')">
                 <span class="material-symbols-outlined notranslate menu-icon" translate="no">edit_document</span>
                 <div>
-                    <span class="menu-text-en">Begin Entry / Boshlash</span>
+                    <span class="menu-text-en">Begin Entry / Arizani Boshlash</span>
                     <span class="menu-text-uz">Yangi Green Card anketasini to'ldirish.</span>
                 </div>
             </div>
@@ -164,7 +148,7 @@
             <div class="menu-btn red-border" onclick="switchPage('view-status')">
                 <span class="material-symbols-outlined notranslate menu-icon" translate="no">fact_check</span>
                 <div>
-                    <span class="menu-text-en">Check Status / Tekshirish</span>
+                    <span class="menu-text-en">Check Status / Holatni Tekshirish</span>
                     <span class="menu-text-uz">Mavjud arizangiz holatini tekshirish.</span>
                 </div>
             </div>
@@ -172,43 +156,44 @@
 
         <!-- SAHIFA 2: ANKETA -->
         <div id="view-form" class="page-view">
-            <div class="part-header">Part 1 - Entrant Information</div>
+            <div class="part-header">Part 1 - Entrant Information (Asosiy Ma'lumotlar)</div>
             
             <form id="dvForm">
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">person</span> 1. Name</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">person</span> 1. Name / F.I.O</div>
                     <div class="form-group">
                         <label>a. Last/Family Name <span class="req">*</span></label>
-                        <span class="label-uz">Familiya (Pasportdagi kabi lotin harflarida)</span>
-                        <input type="text" id="lastName" placeholder="Karimov" required autocomplete="off">
+                        <span class="label-uz">Familiyangiz (Pasportdagi kabi)</span>
+                        <input type="text" id="lastName" placeholder="Masalan: Karimov" required autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label>b. First Name <span class="req">*</span></label>
-                        <span class="label-uz">Ism (Pasportdagi kabi)</span>
-                        <input type="text" id="firstName" placeholder="Jasur" required autocomplete="off">
+                        <span class="label-uz">Ismingiz (Pasportdagi kabi)</span>
+                        <input type="text" id="firstName" placeholder="Masalan: Jasur" required autocomplete="off">
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">calendar_month</span> 2. Birth Information</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">calendar_month</span> 2. Birth Information / Tug'ilgan sana va joy</div>
                     <div class="form-group">
                         <label>a. Date of Birth <span class="req">*</span></label>
+                        <span class="label-uz">Tug'ilgan sanangiz</span>
                         <input type="date" id="birthDate" required>
                     </div>
                     
-                    <!-- MUKAMMAL JONLI XARITA (FAQAT O'ZBEKISTON UCHUN) -->
                     <div class="form-group">
                         <label>b. Birth City / Location <span class="req">*</span></label>
-                        <span class="label-uz">Tug'ilgan tuman yoki shaharni yozing va ro'yxatdan tanlang</span>
-                        <input type="text" id="birthCity" placeholder="Masalan: Chilonzor, Toshkent..." required autocomplete="off">
+                        <span class="label-uz">Tug'ilgan viloyat yoki tumanni yozing va pastdan tanlang</span>
+                        <input type="text" id="birthCity" placeholder="Shahar/Viloyat nomini yozing..." required autocomplete="off">
                         <div class="autocomplete-dropdown" id="cityDropdown"></div>
                     </div>
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">photo_camera</span> 3. Photographs</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">photo_camera</span> 3. Photographs / Rasmlar</div>
                     <div class="form-group">
                         <label>a. Passport Copy <span class="req">*</span></label>
+                        <span class="label-uz">Pasportingizning asosiy sahifasi rasmi</span>
                         <div class="file-box" onclick="document.getElementById('passportFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">id_card</span>
                             <span class="file-label-en" id="passportLabel">Upload Passport Image</span>
@@ -220,6 +205,7 @@
 
                     <div class="form-group" style="margin-top:20px;">
                         <label>b. DV-2027 Photograph (600x600) <span class="req">*</span></label>
+                        <span class="label-uz">Orqasi oq fonda tushilgan maxsus rasm</span>
                         <div class="file-box" onclick="document.getElementById('gcPhotoFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">portrait</span>
                             <span class="file-label-en" id="gcPhotoLabel">Upload 600x600 Photo</span>
@@ -231,7 +217,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">contact_mail</span> 4. Contact & Education</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">contact_mail</span> 4. Contact & Education / Aloqa va Ta'lim</div>
                     <div class="form-group">
                         <label>a. Phone Number <span class="req">*</span></label>
                         <span class="label-uz">Joriy telefon raqamingiz</span>
@@ -239,8 +225,9 @@
                     </div>
                     <div class="form-group">
                         <label>b. Education Level <span class="req">*</span></label>
+                        <span class="label-uz">Ta'lim darajangizni tanlang</span>
                         <select id="education" required>
-                            <option value="">Tanlang...</option>
+                            <option value="">Tanlang / Select...</option>
                             <option value="High School">High School (Maktab / Kollej)</option>
                             <option value="University Degree">University Degree (Bakalavr)</option>
                             <option value="Master's Degree">Master's Degree (Magistratura)</option>
@@ -249,12 +236,12 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">family_restroom</span> 5. Family Setup</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">family_restroom</span> 5. Family Setup / Oilaviy Ahvol</div>
                     <div class="form-group">
                         <label>a. Marital Status <span class="req">*</span></label>
-                        <span class="label-uz">Joriy oilaviy holatingiz</span>
+                        <span class="label-uz">Joriy qonuniy oilaviy holatingiz</span>
                         <select id="maritalStatus" required onchange="handleFamilyFields()">
-                            <option value="">Tanlang...</option>
+                            <option value="">Tanlang / Select...</option>
                             <option value="Unmarried">Unmarried (Uylanmagan/Turmushga chiqmagan)</option>
                             <option value="Married">Married (Oila qurgan)</option>
                             <option value="Divorced">Divorced (Ajrashgan)</option>
@@ -267,21 +254,23 @@
                     </div>
                 </div>
 
-                <!-- DINAMIK QISM: TURMUSH O'RTOG'I (Faqat "Married" bo'lganda chiqadi) -->
+                <!-- DINAMIK QISM: TURMUSH O'RTOG'I (Faqat Married tanlansa chiqadi) -->
                 <div id="spouseSection" class="hidden-section">
-                    <div class="part-header" style="font-size: 17px;">Part 1B - Spouse Information</div>
+                    <div class="part-header" style="font-size: 18px;">Part 1B - Spouse Information / Turmush O'rtog'i</div>
                     <div class="card" style="border-top-color: #f59e0b;">
-                        <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">group</span> Spouse Details</div>
                         <div class="form-group">
                             <label>Spouse Full Name <span class="req">*</span></label>
-                            <input type="text" id="spouseName" placeholder="Familiya va Ismi">
+                            <span class="label-uz">Turmush o'rtog'ingiz Familiyasi va Ismi</span>
+                            <input type="text" id="spouseName" placeholder="Familiya va Ism">
                         </div>
                         <div class="form-group">
                             <label>Spouse Date of Birth <span class="req">*</span></label>
+                            <span class="label-uz">Tug'ilgan sanasi</span>
                             <input type="date" id="spouseDob">
                         </div>
                         <div class="form-group">
-                            <label>Spouse Photograph <span class="req">*</span></label>
+                            <label>Spouse Photograph (600x600) <span class="req">*</span></label>
+                            <span class="label-uz">Turmush o'rtog'ingizning oq fondagi rasmi</span>
                             <div class="file-box" onclick="document.getElementById('spouseFile').click()">
                                 <span class="material-symbols-outlined notranslate file-icon" translate="no">add_a_photo</span>
                                 <span class="file-label-en" id="spouseLabel">Upload Spouse Photo</span>
@@ -293,9 +282,9 @@
                     </div>
                 </div>
 
-                <!-- DINAMIK QISM: FARZANDLAR (Faqat soni 0 dan katta bo'lganda chiqadi) -->
+                <!-- DINAMIK QISM: FARZANDLAR (Soni 0 dan katta bo'lsa chiqadi) -->
                 <div id="childrenSection" class="hidden-section">
-                    <div class="part-header" style="font-size: 17px;">Part 1C - Children Information</div>
+                    <div class="part-header" style="font-size: 18px;">Part 1C - Children Information / Farzandlar</div>
                     <div id="childrenContainer"></div>
                 </div>
 
@@ -303,9 +292,8 @@
                     <button type="button" class="btn btn-secondary" onclick="switchPage('view-home')">
                         <span class="material-symbols-outlined notranslate" translate="no">arrow_back</span> Orqaga
                     </button>
-                    <!-- TUGMA YOZUVLARI QISQARTIRILDI, EKRANGA SIG'ADI -->
                     <button type="button" class="btn btn-primary" onclick="proceedToPayment()">
-                        Next Step <span class="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
+                        Next / To'lovga O'tish <span class="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
                     </button>
                 </div>
             </form>
@@ -313,26 +301,24 @@
 
         <!-- SAHIFA 3: TO'LOV -->
         <div id="view-payment" class="page-view">
-            <div class="part-header">Part 2 - Secure Payment</div>
+            <div class="part-header">Part 2 - Secure Payment / Xavfsiz To'lov</div>
             
             <div class="card" style="border-top-color: var(--us-red);">
-                <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no" style="color:var(--us-red);">payments</span> Xizmat uchun to'lov</div>
+                <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no" style="color:var(--us-red);">payments</span> Service Fee / Xizmat uchun to'lov</div>
                 
                 <div style="background: #f0fdfa; border: 1px solid #14b8a6; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
-                    <p style="font-size: 15px; margin-bottom: 10px; color: #0f172a;">💳 To'lov summasi: <b style="font-size: 16px;">60,000 so'm</b></p>
-                    <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">Quyidagi karta raqamiga pul o'tkazing:</p>
+                    <p style="font-size: 16px; margin-bottom: 10px; color: #0f172a;">💳 To'lov summasi: <b style="font-size: 17px;">60,000 so'm</b></p>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 8px;">Quyidagi karta raqamiga pul o'tkazing (Nusxalash uchun bosing):</p>
                     
-                    <!-- KARTANI NUSXALASH FUNKSIYASI -->
                     <div class="copy-card" onclick="copyCard()">
                         <span id="cardNumber">8600 0000 0000 0000</span>
                         <span class="material-symbols-outlined notranslate icon" translate="no">content_copy</span>
                     </div>
-                    <p style="font-size: 12px; color: #14b8a6; margin-top: 5px; text-align: right;">Ustiga bosib nusxalang</p>
                 </div>
 
                 <div class="form-group">
-                    <label>To'lov Cheki Skrinshoti <span class="req">*</span></label>
-                    <span class="label-uz">To'lov muvaffaqiyatli bo'lganligi haqidagi chekni yuklang</span>
+                    <label>Payment Receipt / To'lov Cheki <span class="req">*</span></label>
+                    <span class="label-uz">To'lov muvaffaqiyatli bo'lganligi haqidagi chek skrinshotini yuklang</span>
                     <div class="file-box" onclick="document.getElementById('paymentFile').click()">
                         <span class="material-symbols-outlined notranslate file-icon" translate="no">receipt_long</span>
                         <span class="file-label-en" id="paymentLabel">Upload Payment Receipt</span>
@@ -347,7 +333,7 @@
                         <span class="material-symbols-outlined notranslate" translate="no">arrow_back</span> Orqaga
                     </button>
                     <button type="button" class="btn btn-primary" onclick="submitFinalApplication()">
-                        Submit <span class="material-symbols-outlined notranslate" translate="no">check_circle</span>
+                        Submit / Tasdiqlash <span class="material-symbols-outlined notranslate" translate="no">check_circle</span>
                     </button>
                 </div>
             </div>
@@ -355,9 +341,9 @@
 
         <!-- SAHIFA 4: STATUS -->
         <div id="view-status" class="page-view">
-            <div class="card status-box" style="border-top-color: var(--us-navy);">
-                <span class="material-symbols-outlined notranslate" translate="no" style="font-size: 50px; color: var(--us-navy); margin-bottom: 15px;">fact_check</span>
-                <h2 style="font-family: 'Merriweather', serif; color: var(--us-navy); font-size: 22px; margin-bottom: 25px;">Check Status</h2>
+            <div class="card status-box" style="border-top-color: var(--us-navy); text-align: center;">
+                <span class="material-symbols-outlined notranslate" translate="no" style="font-size: 55px; color: var(--us-navy); margin-bottom: 15px;">fact_check</span>
+                <h2 style="font-family: 'Merriweather', serif; color: var(--us-navy); font-size: 22px; margin-bottom: 25px;">Check Status / Holatni Tekshirish</h2>
                 
                 <div class="form-group" style="text-align: left;">
                     <label>Confirmation Number</label>
@@ -366,14 +352,14 @@
                 </div>
 
                 <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="checkStatusReal()">
-                    <span class="material-symbols-outlined notranslate" translate="no">search</span> Search Status
+                    <span class="material-symbols-outlined notranslate" translate="no">search</span> Search / Tekshirish
                 </button>
                 
-                <div id="statusResult" style="margin-top: 25px; padding: 18px; border-radius: 8px; display: none; font-size: 15px; border: 1px solid var(--border-color); text-align: left;"></div>
+                <div id="statusResult" style="margin-top: 25px; padding: 18px; border-radius: 8px; display: none; font-size: 15.5px; border: 1px solid var(--border-color); text-align: left; line-height: 1.5;"></div>
 
                 <div class="action-buttons" style="margin-top: 30px;">
                     <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="switchPage('view-home')">
-                        <span class="material-symbols-outlined notranslate" translate="no">home</span> Bosh Sahifa
+                        <span class="material-symbols-outlined notranslate" translate="no">home</span> Home / Bosh Sahifa
                     </button>
                 </div>
             </div>
@@ -383,18 +369,17 @@
 
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand();
-        tg.MainButton.hide();
+        tg.expand(); tg.MainButton.hide();
 
         function switchPage(pageId) {
-            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+            document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
             setTimeout(() => { document.getElementById(pageId).classList.add('active'); window.scrollTo(0,0); }, 50);
         }
 
         function handleFile(input, previewId, labelId, nameId) {
             const file = input.files[0];
             if (file) {
-                document.getElementById(labelId).innerText = "Uploaded!";
+                document.getElementById(labelId).innerText = "File Uploaded / Yuklandi!";
                 document.getElementById(labelId).style.color = "var(--success)";
                 document.getElementById(nameId).innerText = file.name;
                 document.getElementById(nameId).style.display = "block";
@@ -407,99 +392,89 @@
             }
         }
 
-        // KARTA RAQAMINI NUSXALASH FUNKSIYASI
         function copyCard() {
             const cardNumber = document.getElementById('cardNumber').innerText.replace(/\s+/g, '');
             navigator.clipboard.writeText(cardNumber).then(() => {
-                tg.showAlert("✅ Karta raqami nusxalandi!");
-            }).catch(err => {
-                console.error('Nusxalashda xatolik:', err);
+                tg.showAlert("✅ Karta raqami muvaffaqiyatli nusxalandi!");
             });
         }
 
-        // TELEFON RAQAM UCHUN PROFESSIONAL MASKA (+998 formatida)
         document.getElementById('phone').addEventListener('input', function (e) {
             let x = e.target.value.replace(/\D/g, '');
             if (!x.startsWith('998') && x.length > 0) { x = '998' + x; }
             let match = x.match(/^(\d{3})(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})$/);
-            if (match) {
-                e.target.value = '+' + match[1] + (match[2] ? ' (' + match[2] : '') + (match[3] ? ') ' + match[3] : '') + (match[4] ? '-' + match[4] : '') + (match[5] ? '-' + match[5] : '');
-            } else {
-                e.target.value = x ? '+' + x : '';
-            }
+            if (match) { e.target.value = '+' + match[1] + (match[2] ? ' (' + match[2] : '') + (match[3] ? ') ' + match[3] : '') + (match[4] ? '-' + match[4] : '') + (match[5] ? '-' + match[5] : ''); } 
+            else { e.target.value = x ? '+' + x : ''; }
         });
 
-        // MUKAMMAL XARITA QIDIRUVI (Faqat O'zbekiston hududi uchun)
+        // OFFLINE O'ZBEKISTON XARITASI (100% ANIQLIK VA TEZLIK UCHUN)
+        const uzbCities = [
+            "Toshkent shahri", "Yunusobod, Toshkent", "Chilonzor, Toshkent", "Mirzo Ulug'bek, Toshkent", "Mirobod, Toshkent", "Yakkasaroy, Toshkent", "Sergeli, Toshkent", "Olmazor, Toshkent", "Uchtepa, Toshkent", "Shayxontohur, Toshkent", "Yashnobod, Toshkent", "Bektemir, Toshkent",
+            "Toshkent viloyati", "Chirchiq", "Angren", "Olmaliq", "Bekobod", "Nurafshon", "Qibray", "Zangiota", "Yangiyo'l", "Parkent", "G'azalkent",
+            "Samarqand shahri", "Samarqand viloyati", "Urgut", "Kattaqo'rg'on", "Jomboy", "Payariq", "Ishtixon", "Bulung'ur", "Narpay",
+            "Buxoro shahri", "Buxoro viloyati", "G'ijduvon", "Vobkent", "Shofirkon", "Qorako'l", "Jondor",
+            "Andijon shahri", "Andijon viloyati", "Asaka", "Shahrixon", "Qo'rg'ontepa", "Baliqchi", "Paxtaobod",
+            "Farg'ona shahri", "Farg'ona viloyati", "Marg'ilon", "Qo'qon", "Rishton", "Beshariq", "Quva", "Oltiariq",
+            "Namangan shahri", "Namangan viloyati", "Chust", "Uychi", "Pop", "Uchqo'rg'on", "Kosonsoy",
+            "Qashqadaryo viloyati", "Qarshi", "Shahrisabz", "Kitob", "G'uzor", "Qamashi", "Yakkabog'", "Koson",
+            "Surxondaryo viloyati", "Termiz", "Denov", "Sherobod", "Boysun", "Sho'rchi", "Qumqo'rg'on",
+            "Xorazm viloyati", "Urganch", "Xiva", "Xonqa", "Gurlan", "Hazorasp", "Qo'shko'pir",
+            "Jizzax shahri", "Jizzax viloyati", "Zomin", "G'allaorol", "Sharof Rashidov", "Paxtakor",
+            "Navoiy shahri", "Navoiy viloyati", "Zarafshon", "Uchquduq", "Xatirchi", "Qiziltepa", "Nurota",
+            "Sirdaryo viloyati", "Guliston", "Yangiyer", "Shirin", "Sirdaryo tuman", "Boyovut",
+            "Qoraqalpog'iston", "Nukus", "Qo'ng'irot", "Beruniy", "To'rtko'l", "Amudaryo", "Chimboy", "Taxiatosh"
+        ];
+
         const cityInput = document.getElementById('birthCity');
         const cityDropdown = document.getElementById('cityDropdown');
-        let typingTimer;
 
         cityInput.addEventListener('input', function() {
-            clearTimeout(typingTimer);
-            const query = this.value.trim();
-            if(query.length < 3) { cityDropdown.style.display = 'none'; return; }
-
-            typingTimer = setTimeout(async () => {
-                try {
-                    // API ga `countrycodes=uz` qo'shildi (Faqat O'zbekistonni topadi), hamda `accept-language=uz`
-                    const res = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&countrycodes=uz&limit=8&addressdetails=1&accept-language=uz`);
-                    const data = await res.json();
-                    
-                    cityDropdown.innerHTML = '';
-                    if(data.length > 0) {
-                        data.forEach(item => {
-                            const div = document.createElement('div');
-                            div.className = 'autocomplete-item';
-                            // Manzilni qisqartirib chiroyli ko'rsatish
-                            const cleanName = item.display_name.split(',').slice(0, 3).join(', ');
-                            div.innerHTML = `<span class="material-symbols-outlined notranslate loc-icon" translate="no">location_on</span> <span>${cleanName}</span>`;
-                            div.onclick = () => { cityInput.value = cleanName; cityDropdown.style.display = 'none'; };
-                            cityDropdown.appendChild(div);
-                        });
-                        cityDropdown.style.display = 'block';
-                    } else { cityDropdown.style.display = 'none'; }
-                } catch(e) {}
-            }, 600);
+            const query = this.value.trim().toLowerCase();
+            cityDropdown.innerHTML = '';
+            if(query.length < 2) { cityDropdown.style.display = 'none'; return; }
+            
+            const filtered = uzbCities.filter(city => city.toLowerCase().includes(query)).slice(0, 10);
+            if(filtered.length > 0) {
+                filtered.forEach(city => {
+                    const div = document.createElement('div');
+                    div.className = 'autocomplete-item';
+                    div.innerHTML = `<span class="material-symbols-outlined notranslate loc-icon" translate="no">location_on</span> <span>${city}</span>`;
+                    div.onclick = () => { cityInput.value = city; cityDropdown.style.display = 'none'; };
+                    cityDropdown.appendChild(div);
+                });
+                cityDropdown.style.display = 'block';
+            } else { cityDropdown.style.display = 'none'; }
         });
+        document.addEventListener('click', e => { if(e.target !== cityInput && e.target !== cityDropdown) cityDropdown.style.display = 'none'; });
 
-        document.addEventListener('click', function(e) {
-            if(e.target !== cityInput && e.target !== cityDropdown) { cityDropdown.style.display = 'none'; }
-        });
-
-        // OILA VA FARZANDLAR UCHUN DINAMIK FORMALARNI OCHISH
+        // DINAMIK OILA VA FARZANDLAR FORMASI
         function handleFamilyFields() {
             const status = document.getElementById('maritalStatus').value;
             const childrenCount = parseInt(document.getElementById('childrenCount').value) || 0;
             
-            const spouseSec = document.getElementById('spouseSection');
-            const childSec = document.getElementById('childrenSection');
+            document.getElementById('spouseSection').style.display = (status === 'Married') ? 'block' : 'none';
+            
             const childCont = document.getElementById('childrenContainer');
-
-            // Turmush o'rtog'i
-            if(status === 'Married') {
-                spouseSec.style.display = 'block';
-            } else {
-                spouseSec.style.display = 'none';
-            }
-
-            // Farzandlar
             childCont.innerHTML = '';
             if(childrenCount > 0) {
-                childSec.style.display = 'block';
+                document.getElementById('childrenSection').style.display = 'block';
                 for(let i=1; i<=childrenCount; i++) {
                     childCont.innerHTML += `
                         <div class="card" style="border-top-color: #8b5cf6;">
-                            <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">child_care</span> Child ${i} Details</div>
+                            <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">child_care</span> Child ${i} Details / ${i}-Farzand</div>
                             <div class="form-group">
                                 <label>Child Full Name <span class="req">*</span></label>
-                                <input type="text" class="childName" placeholder="Familiya va Ismi">
+                                <span class="label-uz">Farzandning Familiyasi va Ismi</span>
+                                <input type="text" class="childName" placeholder="Familiya va Ism">
                             </div>
                             <div class="form-group">
                                 <label>Date of Birth <span class="req">*</span></label>
+                                <span class="label-uz">Tug'ilgan sanasi</span>
                                 <input type="date" class="childDob">
                             </div>
                             <div class="form-group">
                                 <label>Child Photograph <span class="req">*</span></label>
+                                <span class="label-uz">Farzandning rasmi (600x600 oq fon)</span>
                                 <div class="file-box" onclick="document.getElementById('childFile${i}').click()">
                                     <span class="material-symbols-outlined notranslate file-icon" translate="no">add_a_photo</span>
                                     <span class="file-label-en" id="childLabel${i}">Upload Child ${i} Photo</span>
@@ -511,32 +486,17 @@
                         </div>
                     `;
                 }
-            } else {
-                childSec.style.display = 'none';
-            }
+            } else { document.getElementById('childrenSection').style.display = 'none'; }
         }
 
         function proceedToPayment() {
-            const lastName = document.getElementById('lastName').value.trim();
-            const firstName = document.getElementById('firstName').value.trim();
-            const birthDate = document.getElementById('birthDate').value;
-            const birthCity = document.getElementById('birthCity').value.trim();
-            const passportFile = document.getElementById('passportFile').files[0];
-            const gcPhotoFile = document.getElementById('gcPhotoFile').files[0];
-            const phone = document.getElementById('phone').value.trim();
-            const education = document.getElementById('education').value;
-            const maritalStatus = document.getElementById('maritalStatus').value;
-
-            if(!lastName || !firstName || !birthDate || !birthCity || !passportFile || !gcPhotoFile || !phone || !education || !maritalStatus) {
-                tg.showAlert("Iltimos, barcha majburiy (1 dan 5-qadamgacha) maydonlarni to'ldiring!");
-                return;
+            const f = document.getElementById;
+            if(!f.call(document,'lastName').value || !f.call(document,'firstName').value || !f.call(document,'birthDate').value || !f.call(document,'passportFile').files[0]) {
+                tg.showAlert("Iltimos, barcha majburiy maydonlarni to'ldiring va rasmlarni yuklang!"); return;
             }
-
             const loader = document.getElementById('loadingScreen');
-            document.getElementById('loadingTitle').innerText = "Validating...";
-            document.getElementById('loadingDesc').innerText = "Ma'lumotlar tekshirilib, to'lov sahifasiga o'tkazilmoqda...";
+            document.getElementById('loadingTitle').innerText = "Validating..."; document.getElementById('loadingDesc').innerText = "Ma'lumotlar tekshirilmoqda...";
             loader.style.display = 'flex';
-
             setTimeout(() => { loader.style.display = 'none'; switchPage('view-payment'); }, 1000);
         }
 
@@ -546,7 +506,7 @@
 
             const loader = document.getElementById('loadingScreen');
             document.getElementById('loadingTitle').innerText = "Submitting securely...";
-            document.getElementById('loadingDesc').innerText = "Ma'lumotlar serverga yuborilmoqda...";
+            document.getElementById('loadingDesc').innerText = "Ma'lumotlar yuborilmoqda, iltimos kuting...";
             loader.style.display = 'flex';
 
             const formData = new FormData();
@@ -563,7 +523,9 @@
             formData.append('gc_photo', document.getElementById('gcPhotoFile').files[0]);
             formData.append('payment', paymentFile);
 
+            // TELEFONDAN SERVERGA ULANISH XATOSI UCHUN QO'SHIMCHA TEKSHIRUV:
             try {
+                // MUHIM: Agar telefonda ishlatmoqchi bo'lsangiz 127.0.0.1 o'rniga kompyuter IP si (Masalan: 192.168.1.5) ni yozish kerak!
                 const response = await fetch('http://127.0.0.1:8000/api/submit', { method: 'POST', body: formData });
                 const result = await response.json();
                 
@@ -573,7 +535,8 @@
                     tg.close();
                 } else { tg.showAlert("Xatolik yuz berdi. Qaytadan urinib ko'ring."); }
             } catch (err) {
-                loader.style.display = 'none'; tg.showAlert("Serverga ulanishda xatolik yuz berdi. Dastur yoniq ekanligini tekshiring.");
+                loader.style.display = 'none';
+                tg.showAlert("⚠️ Server ishlamayapti!\n\nSababi: Siz telefoningizdan kirdingiz. Telefoningiz 127.0.0.1 (Kompyuter) ga to'g'ridan-to'g'ri ulana olmaydi. Buning uchun kompyuteringiz Wi-Fi IP manzilini kodga yozishingiz yoki Ngrok ishlatishingiz kerak!");
             }
         }
 
@@ -595,7 +558,7 @@
                     resBox.style.background = "#fef2f2"; resBox.style.borderColor = "#ef4444";
                     resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#ef4444; font-size: 30px; margin-bottom: 5px;">error</span><br><b style="color:#ef4444;">Bunday tasdiq raqami topilmadi.</b>`;
                 }
-            } catch(e) { resBox.innerHTML = "Server bilan aloqa uzilgan."; }
+            } catch(e) { resBox.innerHTML = "⚠️ Server bilan aloqa uzilgan (Telefon orqali 127.0.0.1 ga ulanib bo'lmaydi)."; }
         }
     </script>
 </body>
