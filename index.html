@@ -31,6 +31,20 @@
             overflow-x: hidden;
         }
 
+        /* Ikonkalar tarjima bo'lib ketmasligi uchun qat'iy qoida */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            font-size: 24px;
+            display: inline-block;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            font-feature-settings: 'liga';
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         /* RASMIY HEADER */
         .usa-banner { background-color: #f0f0f0; padding: 8px 15px; font-size: 12px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #1b1b1b; }
         .usa-banner img { width: 18px; }
@@ -82,7 +96,6 @@
         .file-label-en { font-size: 15px; font-weight: 700; color: var(--us-navy); display: block; text-decoration: underline; }
         .preview-img { max-width: 100%; max-height: 200px; margin-top: 15px; border-radius: 8px; display: none; border: 1px solid var(--border-color); }
 
-        /* YAXSHILANGAN TUGMALAR (Pastda joylashgan, yopishib qolmaydi) */
         .action-buttons { display: flex; gap: 12px; margin-top: 30px; }
         .btn { flex: 1; height: 55px; border: none; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; font-family: 'Public Sans', sans-serif; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
         .btn-primary { background-color: var(--us-navy); color: white; }
@@ -90,7 +103,6 @@
         .btn-secondary { background-color: #f1f5f9; color: var(--text-main); border: 1px solid var(--border-color); flex: 0.5; }
         .btn-secondary:active { background-color: #e2e8f0; }
 
-        /* LOADING ANIMATSIYA */
         .loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.98); z-index: 10000; display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
         .spinner { width: 60px; height: 60px; border: 4px solid #e2e8f0; border-top: 4px solid var(--us-navy); border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 20px; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -134,7 +146,7 @@
             </div>
 
             <div class="menu-btn" onclick="switchPage('view-form')">
-                <span class="material-symbols-outlined menu-icon">edit_document</span>
+                <span class="material-symbols-outlined notranslate menu-icon" translate="no">edit_document</span>
                 <div>
                     <span class="menu-text-en">Begin Entry / Arizani Boshlash</span>
                     <span class="menu-text-uz">Yangi Green Card anketasini to'ldirish va rasmlarni yuklash.</span>
@@ -142,7 +154,7 @@
             </div>
 
             <div class="menu-btn red-border" onclick="switchPage('view-status')">
-                <span class="material-symbols-outlined menu-icon">fact_check</span>
+                <span class="material-symbols-outlined notranslate menu-icon" translate="no">fact_check</span>
                 <div>
                     <span class="menu-text-en">Check Status / Holatni Tekshirish</span>
                     <span class="menu-text-uz">Mavjud arizangiz holati va natijasini tekshirish.</span>
@@ -156,7 +168,7 @@
             
             <form id="dvForm">
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined">person</span> 1. Name (Ism va Familiya)</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">person</span> 1. Name (Ism va Familiya)</div>
                     <div class="form-group">
                         <label>a. Last/Family Name <span class="req">*</span></label>
                         <span class="label-uz">Familiya (Pasportdagi kabi lotin harflarida)</span>
@@ -170,7 +182,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined">calendar_month</span> 2. Birth Information</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">calendar_month</span> 2. Birth Information</div>
                     <div class="form-group">
                         <label>a. Date of Birth <span class="req">*</span></label>
                         <span class="label-uz">Tug'ilgan sana (Kun.Oy.Yil)</span>
@@ -184,12 +196,12 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined">photo_camera</span> 3. Photographs</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">photo_camera</span> 3. Photographs</div>
                     <div class="form-group">
                         <label>a. Passport Copy <span class="req">*</span></label>
                         <span class="label-uz">Pasportingizning asosiy sahifasi rasmi</span>
                         <div class="file-box" onclick="document.getElementById('passportFile').click()">
-                            <span class="material-symbols-outlined file-icon">id_card</span>
+                            <span class="material-symbols-outlined notranslate file-icon" translate="no">id_card</span>
                             <span class="file-label-en" id="passportLabel">Upload Passport Image</span>
                             <input type="file" id="passportFile" accept="image/*" required onchange="handleFile(this, 'passportPreview', 'passportLabel')">
                         </div>
@@ -200,7 +212,7 @@
                         <label>b. DV-2027 Photograph (600x600) <span class="req">*</span></label>
                         <span class="label-uz">Orqasi oq fonda tushilgan maxsus rasm</span>
                         <div class="file-box" onclick="document.getElementById('gcPhotoFile').click()">
-                            <span class="material-symbols-outlined file-icon">portrait</span>
+                            <span class="material-symbols-outlined notranslate file-icon" translate="no">portrait</span>
                             <span class="file-label-en" id="gcPhotoLabel">Upload 600x600 Photo</span>
                             <input type="file" id="gcPhotoFile" accept="image/*" required onchange="handleFile(this, 'gcPhotoPreview', 'gcPhotoLabel')">
                         </div>
@@ -209,7 +221,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined">contact_mail</span> 4. Contact & Education</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">contact_mail</span> 4. Contact & Education</div>
                     <div class="form-group">
                         <label>a. Phone Number <span class="req">*</span></label>
                         <span class="label-uz">Joriy telefon raqamingiz</span>
@@ -228,7 +240,7 @@
                 </div>
 
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined">family_restroom</span> 5. Family Setup</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no">family_restroom</span> 5. Family Setup</div>
                     <div class="form-group">
                         <label>a. Marital Status <span class="req">*</span></label>
                         <span class="label-uz">Joriy oilaviy holatingiz (Qonuniy)</span>
@@ -246,13 +258,12 @@
                     </div>
                 </div>
 
-                <!-- Tugmalar tabiiy holatda, yopishqoq emas -->
                 <div class="action-buttons">
                     <button type="button" class="btn btn-secondary" onclick="switchPage('view-home')">
-                        <span class="material-symbols-outlined">arrow_back</span> Orqaga
+                        <span class="material-symbols-outlined notranslate" translate="no">arrow_back</span> Orqaga
                     </button>
                     <button type="button" class="btn btn-primary" onclick="proceedToPayment()">
-                        Continue to Payment <span class="material-symbols-outlined">arrow_forward</span>
+                        Continue to Payment <span class="material-symbols-outlined notranslate" translate="no">arrow_forward</span>
                     </button>
                 </div>
             </form>
@@ -263,7 +274,7 @@
             <div class="part-header">Part 2 - Secure Payment</div>
             
             <div class="card" style="border-top-color: var(--us-red);">
-                <div class="q-header"><span class="material-symbols-outlined" style="color:var(--us-red);">payments</span> Xizmat uchun to'lovni amalga oshiring</div>
+                <div class="q-header"><span class="material-symbols-outlined notranslate" translate="no" style="color:var(--us-red);">payments</span> Xizmat uchun to'lovni amalga oshiring</div>
                 
                 <div class="payment-info">
                     <p>💳 To'lov summasi: <b>60,000 so'm</b></p>
@@ -275,7 +286,7 @@
                     <label>To'lov Cheki Skrinshoti <span class="req">*</span></label>
                     <span class="label-uz">To'lov muvaffaqiyatli bo'lganligi haqidagi chekni yuklang</span>
                     <div class="file-box" onclick="document.getElementById('paymentFile').click()">
-                        <span class="material-symbols-outlined file-icon">receipt_long</span>
+                        <span class="material-symbols-outlined notranslate file-icon" translate="no">receipt_long</span>
                         <span class="file-label-en" id="paymentLabel">Upload Payment Receipt</span>
                         <input type="file" id="paymentFile" accept="image/*" required onchange="handleFile(this, 'paymentPreview', 'paymentLabel')">
                     </div>
@@ -284,10 +295,10 @@
 
                 <div class="action-buttons">
                     <button type="button" class="btn btn-secondary" onclick="switchPage('view-form')">
-                        <span class="material-symbols-outlined">arrow_back</span> Orqaga
+                        <span class="material-symbols-outlined notranslate" translate="no">arrow_back</span> Orqaga
                     </button>
                     <button type="button" class="btn btn-primary" onclick="submitFinalApplication()">
-                        Submit Application <span class="material-symbols-outlined">check_circle</span>
+                        Submit Application <span class="material-symbols-outlined notranslate" translate="no">check_circle</span>
                     </button>
                 </div>
             </div>
@@ -296,7 +307,7 @@
         <!-- ================= 4. STATUS SAHIFASI ================= -->
         <div id="view-status" class="page-view">
             <div class="card" style="text-align: center; border-top-color: var(--us-navy);">
-                <span class="material-symbols-outlined" style="font-size: 50px; color: var(--us-navy); margin-bottom: 10px;">fact_check</span>
+                <span class="material-symbols-outlined notranslate" translate="no" style="font-size: 50px; color: var(--us-navy); margin-bottom: 10px;">fact_check</span>
                 <h2 style="font-family: 'Merriweather', serif; color: var(--us-navy); font-size: 20px; margin-bottom: 20px;">Check Status</h2>
                 
                 <div class="form-group" style="text-align: left;">
@@ -306,14 +317,14 @@
                 </div>
 
                 <button class="btn btn-primary" style="width: 100%; height: 55px; margin-top: 10px;" onclick="checkStatusReal()">
-                    <span class="material-symbols-outlined">search</span> Search Status
+                    <span class="material-symbols-outlined notranslate" translate="no">search</span> Search Status
                 </button>
                 
                 <div id="statusResult" style="margin-top: 25px; padding: 20px; border-radius: 8px; display: none; font-size: 15px; border: 1px solid var(--border-color);"></div>
 
                 <div class="action-buttons" style="margin-top: 30px;">
                     <button type="button" class="btn btn-secondary" style="flex: 1;" onclick="switchPage('view-home')">
-                        <span class="material-symbols-outlined">home</span> Bosh Sahifaga Qaytish
+                        <span class="material-symbols-outlined notranslate" translate="no">home</span> Bosh Sahifaga Qaytish
                     </button>
                 </div>
             </div>
@@ -323,7 +334,7 @@
 
     <script>
         const tg = window.Telegram.WebApp;
-        tg.expand(); // Ekranni to'liq egallash
+        tg.expand();
         tg.MainButton.hide();
 
         function switchPage(pageId) {
@@ -331,7 +342,7 @@
                 view.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0); // Sahifa almashganda doim tepaga qaytadi
+            window.scrollTo(0, 0);
         }
 
         function handleFile(input, previewId, labelId) {
@@ -348,7 +359,6 @@
             }
         }
 
-        // MA'LUMOTLARNI TEKSHIRIB TO'LOVGA O'TKAZISH
         function proceedToPayment() {
             const lastName = document.getElementById('lastName').value.trim();
             const firstName = document.getElementById('firstName').value.trim();
@@ -376,7 +386,6 @@
             }, 1000);
         }
 
-        // YAKUNIY YUBORISH (SERVERGA)
         async function submitFinalApplication() {
             const paymentFile = document.getElementById('paymentFile').files[0];
             if(!paymentFile) {
@@ -404,7 +413,6 @@
             formData.append('payment', paymentFile);
 
             try {
-                // DIQQAT: Agar saytni GitHub da ishlatsangiz, bu manzilni o'z real serveringiz IP manziliga o'zgartirishingiz kerak bo'ladi
                 const response = await fetch('http://127.0.0.1:8000/api/submit', {
                     method: 'POST',
                     body: formData
@@ -420,11 +428,10 @@
                 }
             } catch (err) {
                 loader.style.display = 'none';
-                tg.showAlert("Serverga ulanishda xatolik yuz berdi. Dasturiy ta'minotni tekshiring.");
+                tg.showAlert("Serverga ulanishda xatolik yuz berdi.");
             }
         }
 
-        // STATUS TEKSHIRISH
         async function checkStatusReal() {
             const code = document.getElementById('confNumber').value.trim();
             const resBox = document.getElementById('statusResult');
@@ -444,11 +451,11 @@
                 if(data.found) {
                     resBox.style.background = "#f0fdf4"; 
                     resBox.style.borderColor = "#166534";
-                    resBox.innerHTML = `<span class="material-symbols-outlined" style="color:#166534; font-size: 30px; margin-bottom: 5px;">check_circle</span><br><b style="font-size: 16px; color:#166534;">STATUS: ${data.status}</b><br><br><b>Ism-Familiya:</b> ${data.fullName}<br><b>Topshirilgan sana:</b> ${data.createdAt}`;
+                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#166534; font-size: 30px; margin-bottom: 5px;">check_circle</span><br><b style="font-size: 16px; color:#166534;">STATUS: ${data.status}</b><br><br><b>Ism-Familiya:</b> ${data.fullName}<br><b>Topshirilgan sana:</b> ${data.createdAt}`;
                 } else {
                     resBox.style.background = "#fef2f2"; 
                     resBox.style.borderColor = "#991b1b";
-                    resBox.innerHTML = `<span class="material-symbols-outlined" style="color:#991b1b; font-size: 30px; margin-bottom: 5px;">error</span><br><b style="color:#991b1b;">Bunday tasdiq raqami topilmadi.</b><br>Kodni to'g'ri kiritganingizni tekshiring.`;
+                    resBox.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no" style="color:#991b1b; font-size: 30px; margin-bottom: 5px;">error</span><br><b style="color:#991b1b;">Bunday tasdiq raqami topilmadi.</b><br>Kodni to'g'ri kiritganingizni tekshiring.`;
                 }
             } catch(e) {
                 resBox.innerHTML = "Server bilan aloqa yo'q yoki o'chirilgan.";
