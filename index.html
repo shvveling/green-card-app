@@ -23,6 +23,22 @@
             --focus-ring: #2563eb;
         }
 
+        /* MAC VA SAFARI UCHUN MAJBURIY ICON RENDER KODI */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined' !important;
+            font-weight: normal !important;
+            font-style: normal !important;
+            letter-spacing: normal !important;
+            text-transform: none !important;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga' 1 !important;
+            font-feature-settings: 'liga' 1 !important;
+            -webkit-font-smoothing: antialiased;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
         body {
@@ -94,7 +110,7 @@
             background: #eff6ff; border-left: 4px solid var(--us-blue-light); padding: 16px;
             border-radius: 6px; margin-bottom: 25px; box-shadow: 0 2px 5px rgba(0,0,0,0.02);
         }
-        .info-alert strong { color: var(--us-navy); font-size: 15px; display: block; margin-bottom: 5px; }
+        .info-alert strong { color: var(--us-navy); font-size: 15px; display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
         .info-alert span { font-size: 13.5px; color: var(--text-muted); }
 
         .part-header {
@@ -216,7 +232,7 @@
                 <p class="uzb-text">Rasmiy ro'yxatga olish darchasiga xush kelibsiz. Barcha ma'lumotlaringiz xorijga chiqish pasportingiz bilan 100% bir xil bo'lishi shart.</p>
             </div>
 
-            <!-- Yangilangan Chiroyli Tugmalar -->
+            <!-- Chiroyli Tugmalar -->
             <div class="menu-btn" onclick="switchPage('view-form')">
                 <span class="material-symbols-outlined notranslate menu-icon" translate="no">edit_document</span>
                 <div>
@@ -242,7 +258,7 @@
         <div id="view-form" class="page-view">
             
             <div class="info-alert">
-                <strong><span class="material-symbols-outlined notranslate icon" translate="no" style="font-size:18px; margin-right:4px;">security</span> Privacy Act & Accuracy Notice (Maxfiylik va Aniqlik)</strong>
+                <strong><span class="material-symbols-outlined notranslate icon" translate="no">security</span> Privacy Act & Accuracy Notice (Maxfiylik)</strong>
                 <span>All information must be entered in Latin characters exactly as it appears on your passport. Any mistakes will lead to disqualification.<br>
                 <i style="color:var(--text-muted); display:block; margin-top:6px;">(Barcha ma'lumotlar pasportingizga qarab faqat lotin harflarida kiritilishi shart. Har qanday xatolik arizangizning bekor qilinishiga olib keladi).</i></span>
             </div>
@@ -269,7 +285,7 @@
 
                 <!-- 2. BIRTH & JONLI XARITA -->
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">calendar_month</span> 2. Birth Information (Tug'ilgan sana va joy)</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">calendar_month</span> 2. Birth Information (Tug'ilgan sana/joy)</div>
                     
                     <div class="form-group">
                         <label>a. Date of Birth <span class="req">*</span></label>
@@ -279,19 +295,19 @@
                     
                     <div class="form-group map-search-wrapper">
                         <label>b. City Where You Were Born <span class="req">*</span></label>
-                        <span class="label-uz">Tug'ilgan shahar yoki viloyatingiz (Yozishni boshlang va pastda chiqqan ro'yxatdan to'g'risini ustiga bosing)</span>
+                        <span class="label-uz">Tug'ilgan shahar yoki viloyatingiz (Yozishni boshlang va pastda chiqqan ro'yxatdan tanlang)</span>
                         <input type="text" id="birthCity" placeholder="Masalan: Samarqand" autocomplete="off" required onkeyup="searchLocation(this.value)">
                         <div id="cityResults" class="autocomplete-list"></div>
                     </div>
                 </div>
 
-                <!-- 3. PHOTOS (Bitta joyda yuklash) -->
+                <!-- 3. PHOTOS -->
                 <div class="card">
-                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">photo_camera</span> 3. Required Documents & Photographs (Hujjat va Surat)</div>
+                    <div class="q-header"><span class="material-symbols-outlined notranslate icon" translate="no">photo_camera</span> 3. Required Documents & Photographs (Surat)</div>
                     
                     <div class="form-group">
                         <label>a. Passport Copy <span class="req">*</span></label>
-                        <span class="label-uz">Ismingiz xatosiz kiritilishi va kafolatlanishi uchun pasportingiz yoki ID kartangiz nusxasi.</span>
+                        <span class="label-uz">Ismingiz xatosiz kiritilishi uchun pasportingiz yoki ID kartangiz nusxasi.</span>
                         <div class="file-box" onclick="document.getElementById('passportFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">id_card</span>
                             <span class="file-label-en" id="passportLabel">Upload Passport Image</span>
@@ -303,7 +319,7 @@
 
                     <div class="form-group" style="margin-top:30px;">
                         <label>b. DV-2027 Photograph <span class="req">*</span></label>
-                        <span class="label-uz">O'zingizning maxsus 600x600 piksel o'lchamdagi, oq fondagi rasmingiz. Ko'zoynak va bosh kiyim taqiqlanadi.</span>
+                        <span class="label-uz">O'zingizning maxsus 600x600 piksel o'lchamdagi, oq fondagi rasmingiz. Ko'zoynak taqiqlanadi.</span>
                         <div class="file-box" onclick="document.getElementById('gcPhotoFile').click()">
                             <span class="material-symbols-outlined notranslate file-icon" translate="no">portrait</span>
                             <span class="file-label-en" id="gcPhotoLabel">Upload 600x600 Photo</span>
@@ -355,7 +371,7 @@
                     
                     <div class="form-group">
                         <label>b. Number of Children <span class="req">*</span></label>
-                        <span class="label-uz">21 yoshga to'lmagan, turmush qurmagan barcha qonuniy farzandlaringiz soni (Agar yo'q bo'lsa 0 yozing)</span>
+                        <span class="label-uz">21 yoshga to'lmagan, turmush qurmagan barcha qonuniy farzandlaringiz soni (Yo'q bo'lsa 0)</span>
                         <input type="number" id="childrenCount" value="0" min="0" max="15" required oninput="generateChildren()">
                     </div>
                 </div>
@@ -478,7 +494,6 @@
                             div.className = 'autocomplete-item';
                             let formatted = place.display_name.replace(/, Oʻzbekiston/gi, "").replace(/, Uzbekistan/gi, "");
                             
-                            // translate="no" xarita lokatsiyasiga ham qo'shildi
                             div.innerHTML = `<span class="material-symbols-outlined notranslate" translate="no">location_on</span> <div><strong>${formatted.split(',')[0]}</strong> <span style="font-size:12.5px; color:#64748b; display:block;">${formatted.substring(formatted.indexOf(',') + 1).trim()}</span></div>`; 
                             
                             div.onclick = function() {
