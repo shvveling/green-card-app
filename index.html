@@ -3,113 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Card Portal 2026 — Rasmiy Konsalting Xizmati</title>
+    <title>Green Card DV-2026 — Rasmiy Konsalting Portali</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         .step-content { display: none; }
-        .step-content.active { display: block; animation: fadeIn 0.3s ease-in-out; }
+        .step-content.active { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
+            from { opacity: 0; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        .us-flag-gradient {
+            background: linear-gradient(135deg, #0A2540 0%, #1A365D 60%, #2B6CB0 100%);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Header -->
+    <!-- Top Info Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span><i class="fa-solid fa-shield-halved text-emerald-400"></i> DV-2026 Rasmiy Konsalting Markazi</span>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-clock text-amber-400"></i> Hujjatlar qabuli ochiq</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#faq-section" class="hover:text-white transition">Ko'p beriladigan savollar</a>
+                <a href="#news-section" class="hover:text-white transition">Yangiliklar</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex justify-between items-center">
             <div class="flex items-center space-x-3">
-                <div class="bg-emerald-600 text-white p-2.5 rounded-xl font-black text-xl tracking-wider shadow-sm">DV</div>
+                <div class="bg-blue-900 text-white p-2.5 rounded-xl font-black text-xl tracking-wider shadow-md flex items-center gap-2">
+                    <span class="text-red-500">🇺🇸</span> DV
+                </div>
                 <div>
                     <h1 class="font-extrabold text-slate-900 text-lg leading-tight">Green Card Portal</h1>
-                    <p class="text-xs text-slate-500 font-medium">DV-2026 Rasmiy Konsalting Portali</p>
+                    <p class="text-xs text-slate-500 font-medium">U.S. Diversity Visa Program Consulting</p>
                 </div>
             </div>
-            <button onclick="toggleTrackerModal()" class="text-xs md:text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 px-3.5 rounded-xl border border-slate-300 transition flex items-center gap-2">
-                <i class="fa-solid fa-magnifying-glass text-emerald-600"></i>
-                <span class="hidden sm:inline">Arizani tekshirish</span>
-            </button>
+            <div class="flex items-center gap-3">
+                <button onclick="toggleTrackerModal()" class="text-xs md:text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-4 rounded-xl border border-slate-300 transition flex items-center gap-2">
+                    <i class="fa-solid fa-magnifying-glass text-blue-700"></i>
+                    <span class="hidden sm:inline">Arizani tekshirish</span>
+                </button>
+                <a href="#form-section" class="text-xs md:text-sm bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-md transition flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>Anketa To'ldirish</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-3xl mx-auto px-4 py-6 w-full flex-grow">
-        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+    <!-- Hero Banner Section -->
+    <section class="us-flag-gradient text-white py-12 px-4 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+            <div class="md:col-span-7 space-y-4">
+                <div class="inline-flex items-center gap-2 bg-blue-800/60 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-semibold text-blue-200">
+                    <i class="fa-solid fa-star text-amber-400"></i> AQSh DV-2026 Mavlsumi Ochiq
+                </div>
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                    Amerika Qo'shma Shtatlarida Yashash va Ishlash Imkoniyati
+                </h2>
+                <p class="text-slate-300 text-sm md:text-base max-w-xl leading-relaxed">
+                    Arizangizni AQSh Davlat Departamenti talablariga 100% mos ravishda xatosiz rasmiylashtiring. Fotosurat va ma'lumotlar mutaxassislar tomonidan qayta tekshiriladi.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-4">
+                    <a href="#form-section" class="bg-emerald-500 hover:bg-emerald-600 text-slate-900 font-extrabold px-6 py-3.5 rounded-xl shadow-lg transition flex items-center gap-2 text-sm">
+                        Anketani Boshlash <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+                    <a href="#guide-section" class="bg-white/10 hover:bg-white/20 text-white font-bold px-6 py-3.5 rounded-xl border border-white/20 transition text-sm">
+                        Talablar va Qoidalar
+                    </a>
+                </div>
+            </div>
             
+            <!-- Key Stats Cards -->
+            <div class="md:col-span-5 grid grid-cols-2 gap-4">
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center space-y-1">
+                    <div class="text-2xl md:text-3xl font-black text-amber-400">55,000</div>
+                    <div class="text-xs text-slate-300">Yillik Grint-Karta Kvotasi</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center space-y-1">
+                    <div class="text-2xl md:text-3xl font-black text-emerald-400">99.8%</div>
+                    <div class="text-xs text-slate-300">Anketa Aniqligi</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center space-y-1">
+                    <div class="text-2xl md:text-3xl font-black text-blue-300">24/7</div>
+                    <div class="text-xs text-slate-300">Texnik Qo'llab-quvvatlash</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-4 rounded-2xl border border-white/10 text-center space-y-1">
+                    <div class="text-2xl md:text-3xl font-black text-purple-300">Unikal</div>
+                    <div class="text-xs text-slate-300">Kuzatuv Kodi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Information & News Section -->
+    <section id="guide-section" class="max-w-6xl mx-auto px-4 py-10 space-y-8">
+        
+        <!-- Requirements Grid -->
+        <div class="text-center space-y-2">
+            <h3 class="text-2xl font-black text-slate-900">Green Card Topshirish Qoidalari va Talablari</h3>
+            <p class="text-xs text-slate-500 max-w-lg mx-auto">Arizangiz rad etilmasligi uchun quyidagi asosiy talablarga rioya qilishingiz shart.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                <div class="w-12 h-12 bg-blue-100 text-blue-800 rounded-xl flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid fa-camera"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">1. 600x600 Rasm Talabi</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Fotosurat so'nggi 6 oy ichida olingan, oq fonda, ko'zoynaksiz va yuzingiz to'liq ko'ringan bo'lishi kerak.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-xl flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid fa-passport"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">2. Pasport va Shaxsiy Ma'lumotlar</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Ism-familiya va tug'ilgan sana xuddi xorijiy pasportingizdagidek lotin alifbosida xatosiz kiritilishi lozim.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+                <div class="w-12 h-12 bg-purple-100 text-purple-800 rounded-xl flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h4 class="font-bold text-slate-900">3. Oila A'zolari</h4>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                    Rasmiy nikohdagi turmush o'rtog'ingiz va 21 yoshga to'lmagan barcha bo'ydoq farzandlaringiz majburiy kiritiladi.
+                </p>
+            </div>
+        </div>
+
+        <!-- News / Updates Section -->
+        <div id="news-section" class="bg-slate-900 text-white rounded-3xl p-6 md:p-8 space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                <h3 class="font-extrabold text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-newspaper text-amber-400"></i> DV-2026 Rasmiy Yangiliklar va Ogohlantirishlar
+                </h3>
+                <span class="text-xs text-slate-400">Yangilandi: 2026</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 space-y-1">
+                    <span class="text-amber-400 font-bold">⚠️ Muhim Ogohlantirish:</span>
+                    <p class="text-slate-300">Bir mavsumda bir kishi nomidan 2 marta ariza topshirilsa, ikkala ariza ham avtomatik bekor qilinadi.</p>
+                </div>
+                <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700/50 space-y-1">
+                    <span class="text-emerald-400 font-bold">✅ Natijalarni Tekshirish:</span>
+                    <p class="text-slate-300">Ariza topshirilgach beriladigan Unikal Kodingiz orqali saytimizda holatni tekshirib borishingiz mumkin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section id="form-section" class="max-w-3xl mx-auto px-4 py-6 w-full flex-grow">
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+            
+            <!-- Form Header -->
+            <div class="bg-slate-900 text-white px-6 py-4 flex justify-between items-center border-b border-slate-800">
+                <h3 class="font-bold text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-file-pen text-emerald-400"></i> Green Card Rasmiy Konsalting Anketasi
+                </h3>
+                <span class="text-xs bg-emerald-500/20 text-emerald-300 font-bold px-2.5 py-1 rounded-full">DV-2026</span>
+            </div>
+
             <!-- Progress Bar -->
             <div class="bg-slate-100 px-6 py-4 border-b border-slate-200">
                 <div class="flex justify-between items-center text-xs font-bold text-slate-600 mb-2">
                     <span id="progress-step-text">1-Bosqich: Asosiy Arizachi Ma'lumotlari</span>
-                    <span id="progress-percent" class="text-emerald-700">33%</span>
+                    <span id="progress-percent" class="text-blue-800">33%</span>
                 </div>
                 <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="bg-emerald-600 h-full w-1/3 transition-all duration-500"></div>
+                    <div id="progress-bar" class="bg-blue-800 h-full w-1/3 transition-all duration-500"></div>
                 </div>
             </div>
 
-            <!-- Form -->
+            <!-- Form Body -->
             <form id="gc-form" class="p-6 md:p-8 space-y-6" enctype="multipart/form-data">
 
                 <!-- STEP 1: Asosiy Arizachi -->
                 <div class="step-content active" id="step-1">
-                    <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-user-check text-emerald-600"></i> 1. Asosiy Arizachi Ma'lumotlari
+                    <h2 class="text-lg font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-user-check text-blue-800"></i> 1. Asosiy Arizachi Ma'lumotlari
                     </h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Ismingiz (First Name) *</label>
-                            <input type="text" id="first_name" required placeholder="Masalan: Sardor" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="first_name" required placeholder="Sardor" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Familiyangiz (Last Name) *</label>
-                            <input type="text" id="last_name" required placeholder="Masalan: Alimov" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="last_name" required placeholder="Alimov" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Otasining ismi (Middle Name)</label>
-                            <input type="text" id="middle_name" placeholder="Masalan: Jasurovich" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="middle_name" placeholder="Jasurovich" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tug'ilgan sana *</label>
-                            <input type="date" id="birth_date" required class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="date" id="birth_date" required class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Jinsi *</label>
-                            <select id="gender" required class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <select id="gender" required class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                                 <option value="Erkak">Erkak (Male)</option>
                                 <option value="Ayol">Ayol (Female)</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Tug'ilgan shahar/tuman *</label>
-                            <input type="text" id="birth_city" required placeholder="Masalan: Samarqand" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="birth_city" required placeholder="Samarqand" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pasport Seriyasi va Raqami *</label>
-                            <input type="text" id="passport_num" required placeholder="FA1234567" class="w-full p-3 border border-slate-300 rounded-xl uppercase focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="text" id="passport_num" required placeholder="FA1234567" class="w-full p-3 border border-slate-300 rounded-xl uppercase focus:ring-2 focus:ring-blue-600 outline-none text-sm font-mono">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Telefon Raqamingiz *</label>
-                            <input type="tel" id="phone" required placeholder="+998 90 123 45 67" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <input type="tel" id="phone" required placeholder="+998 90 123 45 67" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                         </div>
                     </div>
 
                     <div class="mt-4">
                         <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Hozirgi Yashash Manzilingiz *</label>
-                        <input type="text" id="address" required placeholder="Toshkent sh., Yunusobod t., 4-mavze 12-uy" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                        <input type="text" id="address" required placeholder="Toshkent sh., Yunusobod t., 4-mavze" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
-                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pasport Rasmi (Nusha/Skaner) *</label>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Pasport Rasmi (Nusha/Foto) *</label>
                             <input type="file" id="passport_photo" accept="image/*" required class="w-full p-2 text-xs border border-slate-300 rounded-lg bg-white">
                         </div>
                         <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
@@ -119,7 +260,7 @@
                     </div>
 
                     <div class="mt-6 flex justify-end">
-                        <button type="button" onclick="nextStep(2)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition flex items-center gap-2 shadow-md">
+                        <button type="button" onclick="nextStep(2)" class="bg-blue-900 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl transition flex items-center gap-2 shadow-md">
                             Davom etish <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
@@ -127,14 +268,14 @@
 
                 <!-- STEP 2: Oila a'zolari (Dinamik) -->
                 <div class="step-content" id="step-2">
-                    <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-people-group text-emerald-600"></i> 2. Oila A'zolari Ma'lumotlari
+                    <h2 class="text-lg font-extrabold text-slate-900 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-people-group text-blue-800"></i> 2. Oila A'zolari Ma'lumotlari
                     </h2>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Oilaviy Holatingiz *</label>
-                            <select id="family_status" onchange="handleFamilyChange()" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <select id="family_status" onchange="handleFamilyChange()" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                                 <option value="Turmush qurmagan">Turmush qurmagan (Single)</option>
                                 <option value="Turmush qurgan">Turmush qurgan (Married)</option>
                                 <option value="Ajrashgan">Ajrashgan (Divorced)</option>
@@ -142,7 +283,7 @@
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-700 uppercase mb-1">21 yoshgacha bo'lgan farzandlar soni *</label>
-                            <select id="children_count" onchange="handleChildrenChange()" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-emerald-500 outline-none">
+                            <select id="children_count" onchange="handleChildrenChange()" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-600 outline-none text-sm">
                                 <option value="0">Farzandlarim yo'q (0)</option>
                                 <option value="1">1 ta farzand</option>
                                 <option value="2">2 ta farzand</option>
@@ -158,14 +299,14 @@
                             <i class="fa-solid fa-heart text-rose-500"></i> Turmush O'rtog'i Ma'lumotlari
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                            <input type="text" id="spouse_first_name" placeholder="Ismi" class="p-3 border border-slate-300 rounded-xl text-sm bg-white">
-                            <input type="text" id="spouse_last_name" placeholder="Familiyasi" class="p-3 border border-slate-300 rounded-xl text-sm bg-white">
-                            <input type="date" id="spouse_birth_date" class="p-3 border border-slate-300 rounded-xl text-sm bg-white">
+                            <input type="text" id="spouse_first_name" placeholder="Ismi" class="p-3 border border-slate-300 rounded-xl text-xs bg-white">
+                            <input type="text" id="spouse_last_name" placeholder="Familiyasi" class="p-3 border border-slate-300 rounded-xl text-xs bg-white">
+                            <input type="date" id="spouse_birth_date" class="p-3 border border-slate-300 rounded-xl text-xs bg-white">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <input type="text" id="spouse_birth_city" placeholder="Tug'ilgan shahri" class="p-3 border border-slate-300 rounded-xl text-sm bg-white">
+                            <input type="text" id="spouse_birth_city" placeholder="Tug'ilgan shahri" class="p-3 border border-slate-300 rounded-xl text-xs bg-white">
                             <div>
-                                <label class="block text-xs font-bold text-slate-600 mb-1">600x600 Oq fondagi Rasmi:</label>
+                                <label class="block text-xs font-bold text-slate-600 mb-1">600x600 Rasmi:</label>
                                 <input type="file" id="spouse_photo" accept="image/*" class="p-2 border border-slate-300 rounded-xl bg-white w-full text-xs">
                             </div>
                         </div>
@@ -175,8 +316,8 @@
                     <div id="children-container" class="space-y-4"></div>
 
                     <div class="mt-6 flex justify-between">
-                        <button type="button" onclick="prevStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3 px-6 rounded-xl transition">Ortga</button>
-                        <button type="button" onclick="nextStep(3)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition flex items-center gap-2 shadow-md">
+                        <button type="button" onclick="prevStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3 px-6 rounded-xl transition text-sm">Ortga</button>
+                        <button type="button" onclick="nextStep(3)" class="bg-blue-900 hover:bg-slate-900 text-white font-bold py-3 px-8 rounded-xl transition flex items-center gap-2 shadow-md text-sm">
                             To'lovga o'tish <i class="fa-solid fa-credit-card"></i>
                         </button>
                     </div>
@@ -184,26 +325,26 @@
 
                 <!-- STEP 3: To'lov -->
                 <div class="step-content" id="step-3">
-                    <h2 class="text-xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                    <h2 class="text-lg font-extrabold text-slate-900 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-wallet text-emerald-600"></i> 3. Xizmat To'lovi
                     </h2>
-                    <p class="text-xs text-slate-500 mb-4">Arizani elchixona talablari bo'yicha to'liq rasmiylashtirish uchun to'lov qiling va chekni yuklang.</p>
+                    <p class="text-xs text-slate-500 mb-4">Arizani elchixona talablari bo'yicha to'liq rasmiylashtirish uchun to'lovni amalga oshiring.</p>
 
                     <div class="bg-emerald-50 border border-emerald-200 p-5 rounded-2xl mb-6 shadow-inner">
                         <div class="flex justify-between items-center mb-3">
-                            <span class="text-sm font-bold text-slate-700">Xizmat Narxi:</span>
+                            <span class="text-xs font-bold text-slate-700">Xizmat Narxi:</span>
                             <span id="service-price-display" class="text-2xl font-black text-emerald-700">-- -- UZS</span>
                         </div>
                         <hr class="border-emerald-200 my-3">
                         <div class="space-y-2">
                             <label class="block text-xs font-bold text-slate-600 uppercase">To'lov uchun karta raqami:</label>
                             <div class="flex items-center gap-2">
-                                <input type="text" id="card-number-display" readonly value="Yuklanmoqda..." class="w-full p-3 font-mono font-extrabold text-slate-900 bg-white border border-emerald-300 rounded-xl tracking-widest text-center text-lg">
-                                <button type="button" onclick="copyCardNumber()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-5 rounded-xl transition flex items-center gap-2 text-xs whitespace-nowrap shadow-sm">
+                                <input type="text" id="card-number-display" readonly value="Yuklanmoqda..." class="w-full p-3 font-mono font-extrabold text-slate-900 bg-white border border-emerald-300 rounded-xl tracking-widest text-center text-base">
+                                <button type="button" onclick="copyCardNumber()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition flex items-center gap-2 text-xs whitespace-nowrap shadow-sm">
                                     <i class="fa-regular fa-copy"></i> Nusxalash
                                 </button>
                             </div>
-                            <p id="card-holder-display" class="text-xs text-slate-600 text-right font-medium italic"></p>
+                            <p id="card-holder-display" class="text-xs text-slate-600 text-right italic font-medium"></p>
                         </div>
                     </div>
 
@@ -213,8 +354,8 @@
                     </div>
 
                     <div class="mt-6 flex justify-between">
-                        <button type="button" onclick="prevStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3 px-6 rounded-xl transition">Ortga</button>
-                        <button type="submit" id="submit-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-8 rounded-xl transition flex items-center gap-2 shadow-md">
+                        <button type="button" onclick="prevStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-3 px-6 rounded-xl transition text-sm">Ortga</button>
+                        <button type="submit" id="submit-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-8 rounded-xl transition flex items-center gap-2 shadow-md text-sm">
                             Arizani Yuborish <i class="fa-solid fa-paper-plane"></i>
                         </button>
                     </div>
@@ -226,12 +367,12 @@
                         <i class="fa-solid fa-check"></i>
                     </div>
                     <h2 class="text-2xl font-black text-slate-900 mb-2">Arizangiz Qabul Qilindi!</h2>
-                    <p class="text-sm text-slate-600 max-w-md mx-auto mb-6">
-                        Barcha ma'lumotlar saqlandi. Quyidagi maxsus kalit orqali arizangiz holatini saytimizda istalgan vaqtda tekshirishingiz mumkin.
+                    <p class="text-xs text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">
+                        Ma'lumotlar muvaffaqiyatli saqlandi. Quyidagi maxsus kalit orqali arizangiz holatini saytimizda istalgan vaqtda tekshirishingiz mumkin.
                     </p>
 
                     <div class="bg-slate-100 p-5 rounded-2xl max-w-sm mx-auto border border-slate-300 mb-6 shadow-sm">
-                        <span class="block text-xs font-extrabold text-slate-500 uppercase tracking-wider">Arizangizning Kuzatuv Kodi:</span>
+                        <span class="block text-xs font-extrabold text-slate-500 uppercase tracking-wider">Kuzatuv Kodingiz:</span>
                         <span id="final-tracking-code" class="text-3xl font-mono font-black text-emerald-700 tracking-widest block mt-2">GC-2026-XXXXX</span>
                     </div>
 
@@ -242,25 +383,53 @@
 
             </form>
         </div>
-    </main>
+    </section>
 
-    <!-- Modal: Ariza Holatini Tekshirish -->
+    <!-- FAQ Section -->
+    <section id="faq-section" class="max-w-4xl mx-auto px-4 py-10 space-y-6">
+        <div class="text-center space-y-1">
+            <h3 class="text-xl font-extrabold text-slate-900">Ko'p Beriladigan Savollar</h3>
+            <p class="text-xs text-slate-500">Arizalar va to'lov jarayoni haqida eng ko'p so'raladigan savollar</p>
+        </div>
+
+        <div class="space-y-3 text-xs md:text-sm">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+                <h4 class="font-bold text-slate-900">1. Arizani qanday tekshirsam bo'ladi?</h4>
+                <p class="text-slate-600">Ariza topshirilgach beriladigan GC-2026-XXXXX ko'rinishidagi kod orqali saytimiz yuqori menyusidagi "Arizani tekshirish" tugmasini bosib holatni ko'rishingiz mumkin.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-1">
+                <h4 class="font-bold text-slate-900">2. Rasm talabga javob bermasa nima bo'ladi?</h4>
+                <p class="text-slate-600">Mutaxassislarimiz rasmingizni qayta ko'rib chiqadi. Agar talabga javob bermasa, siz bilan Telegram orqali bog'lanib rasmni qayta olamiz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-8 px-4 border-t border-slate-800 mt-10">
+        <div class="max-w-6xl mx-auto text-center space-y-3">
+            <p>© 2026 Green Card Consulting Portal. Barcha huquqlar himoyalangan.</p>
+            <p class="text-slate-500 text-[11px] max-w-2xl mx-auto">
+                Ushbu platforma xususiy konsalting xizmati bo'lib, arizalarni AQSh Davlat Departamenti talablari bo'yicha to'g'ri va xatosiz tayyorlashda ko'maklashadi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal: Tracking -->
     <div id="tracker-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4 border border-slate-200">
             <div class="flex justify-between items-center border-b border-slate-100 pb-3">
-                <h3 class="font-bold text-slate-900 text-lg">Ariza Holatini Tekshirish</h3>
+                <h3 class="font-bold text-slate-900 text-base">Ariza Holatini Tekshirish</h3>
                 <button onclick="toggleTrackerModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
             <div>
-                <input type="text" id="track-input" placeholder="Masalan: GC-2026-8X92A" class="w-full p-3.5 border border-slate-300 rounded-xl uppercase font-mono text-center font-bold tracking-widest outline-none focus:ring-2 focus:ring-emerald-500">
+                <input type="text" id="track-input" placeholder="Masalan: GC-2026-8X92A" class="w-full p-3 border border-slate-300 rounded-xl uppercase font-mono text-center font-bold tracking-widest outline-none focus:ring-2 focus:ring-blue-600 text-sm">
             </div>
-            <button onclick="checkStatus()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl transition shadow-md">Tekshirish</button>
-            
-            <div id="track-result" class="hidden p-4 rounded-xl text-sm mt-3"></div>
+            <button onclick="checkStatus()" class="w-full bg-blue-900 hover:bg-black text-white font-bold py-3 rounded-xl transition shadow-md text-xs">Tekshirish</button>
+            <div id="track-result" class="hidden p-4 rounded-xl text-xs mt-3"></div>
         </div>
     </div>
 
-    <!-- Script Logic -->
+    <!-- JavaScript Logic -->
     <script>
         const API_BASE = "https://greencard-anketa.com/api";
 
@@ -272,9 +441,9 @@
             try {
                 const res = await fetch(`${API_BASE}/settings`);
                 const data = await res.json();
-                document.getElementById('service-price-display').innerText = `${data.price} UZS`;
+                document.getElementById('service-price-display').innerText = `${data.price}`;
                 document.getElementById('card-number-display').value = data.card_number;
-                document.getElementById('card-holder-display').innerText = `Karta Egarisi: ${data.card_holder}`;
+                document.getElementById('card-holder-display').innerText = `Karta Egasi: ${data.card_holder}`;
             } catch (err) {
                 console.error("Sozlamalarni yuklashda xato:", err);
             }
@@ -305,7 +474,7 @@
                 container.innerHTML += `
                     <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl space-y-3">
                         <h4 class="font-bold text-xs uppercase text-slate-700 flex items-center gap-2">
-                            <i class="fa-solid fa-child text-emerald-600"></i> ${i}-Farzand Ma'lumotlari
+                            <i class="fa-solid fa-child text-blue-800"></i> ${i}-Farzand Ma'lumotlari
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
                             <input type="text" id="child_${i}_first_name" placeholder="Ismi" class="p-2.5 border border-slate-300 rounded-xl text-xs bg-white">
@@ -369,7 +538,6 @@
             formData.append('gc_photo', document.getElementById('gc_photo').files[0]);
             formData.append('receipt_photo', document.getElementById('receipt_photo').files[0]);
 
-            // Turmush o'rtog'i
             if (document.getElementById('family_status').value === "Turmush qurgan") {
                 formData.append('spouse_first_name', document.getElementById('spouse_first_name').value);
                 formData.append('spouse_last_name', document.getElementById('spouse_last_name').value);
@@ -380,7 +548,6 @@
                 }
             }
 
-            // Farzandlar
             const childrenCount = parseInt(document.getElementById('children_count').value);
             for (let i = 1; i <= childrenCount; i++) {
                 formData.append(`child_${i}_first_name`, document.getElementById(`child_${i}_first_name`).value);
@@ -422,21 +589,21 @@
             if(!code) return;
 
             resDiv.classList.remove('hidden');
-            resDiv.className = "p-4 rounded-xl text-sm bg-slate-100 text-slate-700 text-center";
+            resDiv.className = "p-4 rounded-xl text-xs bg-slate-100 text-slate-700 text-center";
             resDiv.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Qidirilmoqda...`;
 
             try {
                 const res = await fetch(`${API_BASE}/track/${code}`);
                 const data = await res.json();
                 if(data.found) {
-                    resDiv.className = "p-4 rounded-xl text-sm bg-emerald-50 border border-emerald-200 text-emerald-800 space-y-1 text-left";
+                    resDiv.className = "p-4 rounded-xl text-xs bg-emerald-50 border border-emerald-200 text-emerald-800 space-y-1 text-left";
                     resDiv.innerHTML = `
                         <p class="font-bold">Arizachi: ${data.name}</p>
                         <p>Status: <span class="font-bold underline text-emerald-700">${data.status}</span></p>
                         <p class="text-xs text-slate-500 mt-1">Sana: ${data.created_at}</p>
                     `;
                 } else {
-                    resDiv.className = "p-4 rounded-xl text-sm bg-rose-50 border border-rose-200 text-rose-700 text-center font-bold";
+                    resDiv.className = "p-4 rounded-xl text-xs bg-rose-50 border border-rose-200 text-rose-700 text-center font-bold";
                     resDiv.innerText = "Bunday kodli ariza topilmadi.";
                 }
             } catch (err) {
